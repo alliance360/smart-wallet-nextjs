@@ -10,7 +10,8 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
           className="headerButton" 
           onClick={onMenuClick}
         >
-          <ion-icon name="menu-outline"></ion-icon>
+          {/* Replace ion-icon with Unicode */}
+          <span>☰</span>
         </button>
       </div>
       <div className="pageTitle">
@@ -18,7 +19,7 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
       </div>
       <div className="right">
         <a href="/notifications" className="headerButton">
-          <ion-icon className="icon" name="notifications-outline"></ion-icon>
+          <span className="icon">🔔</span>
           <span className="badge badge-danger">4</span>
         </a>
         <a href="/settings" className="headerButton">

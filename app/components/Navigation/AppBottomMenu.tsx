@@ -1,10 +1,10 @@
 export default function AppBottomMenu() {
   const menuItems = [
-    { href: '/', icon: 'pie-chart-outline', label: 'Overview', active: true },
-    { href: '/pages', icon: 'document-text-outline', label: 'Pages', active: false },
-    { href: '/components', icon: 'apps-outline', label: 'Components', active: false },
-    { href: '/cards', icon: 'card-outline', label: 'My Cards', active: false },
-    { href: '/settings', icon: 'settings-outline', label: 'Settings', active: false },
+    { href: '/', icon: '📊', label: 'Overview', active: true },
+    { href: '/pages', icon: '📄', label: 'Pages', active: false },
+    { href: '/components', icon: '⚙️', label: 'Components', active: false },
+    { href: '/cards', icon: '💳', label: 'My Cards', active: false },
+    { href: '/settings', icon: '⚙️', label: 'Settings', active: false },
   ];
 
   return (
@@ -16,7 +16,7 @@ export default function AppBottomMenu() {
           className={`item ${item.active ? 'active' : ''}`}
         >
           <div className="col">
-            <ion-icon name={item.icon}></ion-icon>
+            <span>{item.icon}</span>
             <strong>{item.label}</strong>
           </div>
         </a>
