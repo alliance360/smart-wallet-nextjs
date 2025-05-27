@@ -35,7 +35,7 @@ export default function DesktopHeader() {
           cursor: 'pointer',
           position: 'relative'
         }}>
-          <ion-icon name="notifications-outline" style={{ fontSize: '1.25rem' }}></ion-icon>
+          <span style={{ fontSize: '1.25rem' }}>🔔</span>
           <span style={{
             position: 'absolute',
             top: '-2px',

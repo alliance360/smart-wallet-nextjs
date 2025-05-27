@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface IonIconProps {
   name: string;
@@ -20,7 +20,7 @@ export default function IonIcon({ name, style, className }: IonIconProps) {
     return <span style={style} className={className}>⚙</span>;
   }
 
-  // Create the ion-icon element using React's createElement equivalent
+  // Create the ion-icon element using React's createElement
   return React.createElement('ion-icon', {
     name,
     style,
