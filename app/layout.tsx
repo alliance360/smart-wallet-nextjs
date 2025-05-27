@@ -21,7 +21,14 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" />
         <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="32x32" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon/192x192.png" />
-        <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet" />
+        <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet" />
+        <script 
+          type="module" 
+          src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"
+        ></script>
       </head>
       <body>
         <div id="loader" style={{display: 'none'}}>
