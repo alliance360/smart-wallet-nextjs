@@ -40,7 +40,7 @@ export default function SendModal({ isOpen, onClose }: SendModalProps) {
                       placeholder="Enter bank ID"
                     />
                     <i className="clear-input">
-                      <ion-icon name="close-circle"></ion-icon>
+                      <span>✕</span>
                     </i>
                   </div>
                 </div>

@@ -40,7 +40,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
                       placeholder="Enter IBAN"
                     />
                     <i className="clear-input">
-                      <ion-icon name="close-circle"></ion-icon>
+                      <span>✕</span>
                     </i>
                   </div>
                 </div>
