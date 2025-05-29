@@ -6,9 +6,10 @@ export const metadata = {
   title: 'Smart Wallet',
   description: 'Your digital wallet application',
   manifest: '/manifest.json',
+}
+export const viewport = {
   themeColor: '#000000',
 }
-
 export default function RootLayout({
   children,
 }: {
