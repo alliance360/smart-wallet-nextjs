@@ -16,7 +16,7 @@ export default function MonthlyBillsSection() {
     },
     {
       id: 3,
-      icon: 'medkit-outline',
+      icon: '🏥',
       iconColor: 'bg-danger',
       price: '$ 299',
       description: 'Monthly Health Insurance',
@@ -24,7 +24,7 @@ export default function MonthlyBillsSection() {
     },
     {
       id: 4,
-      icon: 'card-outline',
+      icon: '💳',
       iconColor: '',
       price: '$ 962',
       description: 'Credit Card Statement',
@@ -54,7 +54,8 @@ export default function MonthlyBillsSection() {
                       />
                     ) : (
                       <div className={`iconbox ${bill.iconColor}`}>
-                        <ion-icon name={bill.icon}></ion-icon>
+                        {/* Replace ion-icon with span containing emoji */}
+                        <span>{bill.icon}</span>
                       </div>
                     )}
                   </div>
