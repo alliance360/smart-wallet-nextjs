@@ -1,10 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-
 export default function MyCardsSection() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-
   const cards = [
     { 
       id: 1, 
@@ -39,7 +35,7 @@ export default function MyCardsSection() {
         <a href="/cards" className="link">View All</a>
       </div>
 
-      <div className="carousel-single splide" ref={carouselRef}>
+      <div className="carousel-single splide">
         <div className="splide__track">
           <ul className="splide__list">
             {cards.map((card) => (
@@ -48,7 +44,8 @@ export default function MyCardsSection() {
                   <div className="card-main">
                     <div className="card-button dropdown">
                       <button type="button" className="btn btn-link btn-icon">
-                        <ion-icon name="ellipsis-horizontal"></ion-icon>
+                        {/* Replace ion-icon with Unicode ellipsis */}
+                        <span>⋯</span>
                       </button>
                     </div>
                     <div className="balance">

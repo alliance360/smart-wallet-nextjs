@@ -28,6 +28,29 @@ export default function NewsSection() {
         <h2 className="title">Latest News</h2>
         <a href="/blog" className="link">View All</a>
       </div>
+
+      <div className="carousel-multiple splide">
+        <div className="splide__track">
+          <ul className="splide__list">
+            {news.map((article) => (
+              <li key={article.id} className="splide__slide">
+                <a href={`/blog/${article.id}`}>
+                  <div className="blog-card">
+                    <img 
+                      src={article.image} 
+                      alt="image" 
+                      className="imaged w-100" 
+                    />
+                    <div className="text">
+                      <h4 className="title">{article.title}</h4>
+                    </div>
+                  </div>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

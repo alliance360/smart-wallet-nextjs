@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 interface SidebarPanelProps {
   isOpen: boolean;
   onClose: () => void;
@@ -25,7 +27,7 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
                 className="btn btn-link btn-icon sidebar-close" 
                 onClick={onClose}
               >
-                <ion-icon name="close-outline"></ion-icon>
+                <span>✕</span>
               </button>
             </div>
 
@@ -39,34 +41,34 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
 
             {/* Action Group */}
             <div className="action-group">
-              <a href="/" className="action-button">
+              <Link href="/" className="action-button">
                 <div className="in">
                   <div className="iconbox">
-                    <ion-icon name="add-outline"></ion-icon>
+                    <span>➕</span>
                   </div>
                   Deposit
                 </div>
-              </a>
-              <a href="/" className="action-button">
+              </Link>
+              <Link href="/" className="action-button">
                 <div className="in">
                   <div className="iconbox">
-                    <ion-icon name="arrow-down-outline"></ion-icon>
+                    <span>⬇️</span>
                   </div>
                   Withdraw
                 </div>
-              </a>
-              <a href="/" className="action-button">
+              </Link>
+              <Link href="/" className="action-button">
                 <div className="in">
                   <div className="iconbox">
-                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                    <span>➡️</span>
                   </div>
                   Send
                 </div>
-              </a>
+              </Link>
               <a href="/cards" className="action-button">
                 <div className="in">
                   <div className="iconbox">
-                    <ion-icon name="card-outline"></ion-icon>
+                    <span>💳</span>
                   </div>
                   My Cards
                 </div>
@@ -77,20 +79,20 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
             <div className="listview-title mt-1">Menu</div>
             <ul className="listview flush transparent no-line image-listview">
               <li>
-                <a href="/" className="item">
+                <Link href="/" className="item">
                   <div className="icon-box bg-primary">
-                    <ion-icon name="pie-chart-outline"></ion-icon>
+                    <span>📊</span>
                   </div>
                   <div className="in">
                     Overview
                     <span className="badge badge-primary">10</span>
                   </div>
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="/pages" className="item">
                   <div className="icon-box bg-primary">
-                    <ion-icon name="document-text-outline"></ion-icon>
+                    <span>📄</span>
                   </div>
                   <div className="in">Pages</div>
                 </a>
@@ -98,7 +100,7 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
               <li>
                 <a href="/components" className="item">
                   <div className="icon-box bg-primary">
-                    <ion-icon name="apps-outline"></ion-icon>
+                    <span>⚙️</span>
                   </div>
                   <div className="in">Components</div>
                 </a>
@@ -106,7 +108,7 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
               <li>
                 <a href="/cards" className="item">
                   <div className="icon-box bg-primary">
-                    <ion-icon name="card-outline"></ion-icon>
+                    <span>💳</span>
                   </div>
                   <div className="in">My Cards</div>
                 </a>
