@@ -1,3 +1,9 @@
+'use client';
+
+import { ConnectButton } from "thirdweb/react";
+import { client } from "../../client";
+import { wallets } from "../../wallets";
+
 export default function DesktopSidebar() {
   const menuItems = [
     { href: '/', icon: '🏠', label: 'Dashboard', active: true },
@@ -36,7 +42,58 @@ export default function DesktopSidebar() {
           </h1>
         </div>
         
-        {/* Balance Card */}
+        {/* Add ConnectButton to Sidebar */}
+        <div style={{ marginBottom: '2rem' }}>
+          <ConnectButton
+            client={client}
+            wallets={wallets}
+            appMetadata={{
+              name: "Smart Wallet",
+              url: "https://finance.alliance360.club",
+              description: "Your digital wallet application",
+              logoUrl: "/assets/img/icon/192x192.png",
+            }}
+            connectModal={{ 
+              size: "wide",
+              titleIcon: "/assets/img/icon/192x192.png",
+            }}
+            connectButton={{
+              label: "Connect Wallet",
+              style: {
+                background: "linear-gradient(135deg, #6236FF 0%, #4318FF 100%)",
+                color: "white",
+                border: "none",
+                borderRadius: "12px",
+                padding: "12px 0",
+                fontSize: "14px",
+                fontWeight: "600",
+                cursor: "pointer",
+                width: "100%",
+                boxShadow: "0 4px 12px rgba(98, 54, 255, 0.3)",
+              }
+            }}
+            detailsButton={{
+              style: {
+                background: "#f8f9fa",
+                color: "#1f2937", 
+                border: "1px solid #e5e7eb",
+                borderRadius: "12px",
+                padding: "12px 16px",
+                fontSize: "14px",
+                fontWeight: "500",
+                cursor: "pointer",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "8px",
+              }
+            }}
+            theme="light"
+          />
+        </div>
+        
+        {/* Balance Card - only show when connected */}
         <div style={{
           backgroundColor: '#3b82f6',
           color: 'white',
