@@ -1,6 +1,6 @@
 import './globals.css'
 import { ThirdwebProvider } from "thirdweb/react";
-import AuthWrapper from './components/Auth/AuthWrapper'
+import ResponsiveLayout from './components/Layout/ResponsiveLayout'
 import Script from 'next/script'
 
 export const metadata = {
@@ -31,14 +31,15 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon/192x192.png" />
       </head>
       <body>
+        {/* Wrap everything in ThirdwebProvider */}
         <ThirdwebProvider>
           <div id="loader" style={{display: 'none'}}>
             <img src="/assets/img/loading-icon.png" alt="icon" className="loading-icon" />
           </div>
           
-          <AuthWrapper>
+          <ResponsiveLayout>
             {children}
-          </AuthWrapper>
+          </ResponsiveLayout>
         </ThirdwebProvider>
         
         <Script 

@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { useActiveAccount, useWalletBalance } from "thirdweb/react";
+import { ethereum } from "thirdweb/chains";
+import { client } from "../../client";
 
-// Temporary simple modals to avoid import issues
+// Keep your existing SimpleModal component unchanged...
 const SimpleModal = ({ 
   isOpen, 
   onClose, 
@@ -41,7 +44,7 @@ const SimpleModal = ({
         onClick={(e) => e.stopPropagation()}
       >
         <h3>{title}</h3>
-        <p>Modal functionality coming soon...</p>
+        <p>Crypto functionality coming soon...</p>
         <button 
           onClick={onClose}
           style={{
@@ -62,6 +65,19 @@ const SimpleModal = ({
 
 export default function WalletCard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
+  const account = useActiveAccount();
+  
+  // Get real ETH balance
+  const { data: balance, isLoading } = useWalletBalance({
+    client,
+    chain: ethereum,
+    address: account?.address,
+  });
+
+  // Show real balance if connected, otherwise show placeholder
+  const displayBalance = account && balance && !isLoading ? 
+    `${parseFloat(balance.displayValue).toFixed(4)} ETH` : 
+    "$ 2,562.50";
 
   return (
     <>
@@ -71,7 +87,13 @@ export default function WalletCard() {
           <div className="balance">
             <div className="left">
               <span className="title">Total Balance</span>
-              <h1 className="total">$ 2,562.50</h1>
+              <h1 className="total">{displayBalance}</h1>
+              {/* Show wallet address if connected */}
+              {account && (
+                <p style={{ fontSize: '12px', opacity: 0.8, margin: '5px 0 0 0' }}>
+                  {account.address.slice(0, 8)}...{account.address.slice(-6)}
+                </p>
+              )}
             </div>
             <div className="right">
               <button 
@@ -83,7 +105,7 @@ export default function WalletCard() {
             </div>
           </div>
 
-          {/* Wallet Footer */}
+          {/* Keep your existing wallet footer unchanged */}
           <div className="wallet-footer">
             <div className="item">
               <button onClick={() => setActiveModal('withdraw')}>
@@ -121,7 +143,7 @@ export default function WalletCard() {
         </div>
       </div>
 
-      {/* Simple Modals */}
+      {/* Keep your existing modals unchanged */}
       <SimpleModal 
         isOpen={activeModal === 'deposit'} 
         onClose={() => setActiveModal(null)} 

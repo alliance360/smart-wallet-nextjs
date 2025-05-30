@@ -1,3 +1,7 @@
+import { ConnectButton } from "thirdweb/react";
+import { client } from "../../client";
+import { wallets } from "../../wallets";
+
 interface AppHeaderProps {
   onMenuClick: () => void;
 }
@@ -10,7 +14,6 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
           className="headerButton" 
           onClick={onMenuClick}
         >
-          {/* Replace ion-icon with Unicode */}
           <span>☰</span>
         </button>
       </div>
@@ -22,10 +25,57 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
           <span className="icon">🔔</span>
           <span className="badge badge-danger">4</span>
         </a>
-        <a href="/settings" className="headerButton">
-          <img src="/assets/img/sample/avatar/avatar1.jpg" alt="image" className="imaged w32" />
-          <span className="badge badge-danger">6</span>
-        </a>
+        
+        {/* Replace the original avatar button with ConnectButton */}
+        <div className="headerButton">
+          <ConnectButton
+            client={client}
+            wallets={wallets}
+            appMetadata={{
+              name: "Smart Wallet",
+              url: "https://finance.alliance360.club",
+              description: "Your digital wallet application",
+              logoUrl: "/assets/img/icon/192x192.png",
+            }}
+            connectModal={{ 
+              size: "compact",
+              titleIcon: "/assets/img/icon/192x192.png",
+            }}
+            connectButton={{
+              label: "Connect",
+              style: {
+                background: "rgba(255,255,255,0.2)",
+                color: "white",
+                border: "none",
+                borderRadius: "50%",
+                width: "32px",
+                height: "32px",
+                padding: "0",
+                fontSize: "12px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }
+            }}
+            detailsButton={{
+              style: {
+                background: "rgba(255,255,255,0.2)",
+                color: "white", 
+                border: "none",
+                borderRadius: "50%",
+                width: "32px",
+                height: "32px",
+                padding: "0",
+                fontSize: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                position: "relative"
+              }
+            }}
+            theme="dark"
+          />
+        </div>
       </div>
     </div>
   );
