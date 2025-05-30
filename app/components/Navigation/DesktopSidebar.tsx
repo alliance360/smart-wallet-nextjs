@@ -34,50 +34,55 @@ export default function DesktopSidebar() {
       height: '100vh'
     }}>
       <div style={{ padding: '2rem' }}>
-        {/* Logo */}
-        <div style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          marginBottom: '2rem' 
-        }}>
-          <img 
-            src="/assets/img/logo.png" 
-            alt="logo" 
-            style={{ height: '40px', marginRight: '12px' }}
-          />
-          <h1 style={{ 
-            fontSize: '1.5rem', 
-            fontWeight: '600', 
-            margin: 0,
-            color: '#1f2937'
-          }}>
-            Smart Wallet
-          </h1>
-        </div>
-        
-        {/* Enhanced ConnectButton with Polygon tokens */}
+        {/* Logo + ConnectButton Area */}
         <div style={{ marginBottom: '2rem' }}>
+          {/* Logo */}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            marginBottom: '1rem' 
+          }}>
+            <img 
+              src="/assets/img/logo.png" 
+              alt="logo" 
+              style={{ height: '40px', marginRight: '12px' }}
+            />
+            <h1 style={{ 
+              fontSize: '1.5rem', 
+              fontWeight: '600', 
+              margin: 0,
+              color: '#1f2937'
+            }}>
+              Smart Wallet
+            </h1>
+          </div>
+          
+          {/* ConnectButton in logo area */}
           <ConnectButton
             client={client}
-            chain={defineChain(137)} // Polygon mainnet
+            chain={defineChain(137)}
             wallets={wallets}
             supportedTokens={{
-              // Polygon mainnet supported tokens
               137: [
                 {
-                  address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // USDT
+                  address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
                   name: "USD Tether",
                   symbol: "USDT",
                 },
                 {
-                  address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", // USDC
+                  address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
                   name: "USD Coin",
                   symbol: "USDC",
                 },
                 {
-                  address: "0x61590e467DdE0043dDD499F4c10b2a78dAEc3f7a", // PAX on Polygon
-                  name: "PAX Stablecoin",
-                  symbol: "PAX",
+                  address: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+                  name: "Dai Stablecoin",
+                  symbol: "DAI",
+                },
+                {
+                  address: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+                  name: "Wrapped Ethereum",
+                  symbol: "WETH",
                 },
               ],
             }}
@@ -177,7 +182,7 @@ export default function DesktopSidebar() {
           ))}
         </nav>
 
-        {/* Supported Tokens Display */}
+        {/* Quick Actions */}
         <div style={{ marginTop: '2rem' }}>
           <h3 style={{ 
             fontSize: '0.875rem', 
@@ -185,46 +190,33 @@ export default function DesktopSidebar() {
             color: '#6b7280',
             marginBottom: '1rem' 
           }}>
-            Supported Tokens
+            Quick Actions
           </h3>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: '1fr 1fr', 
-            gap: '0.5rem',
-            fontSize: '0.75rem'
-          }}>
-            <div style={{ 
-              padding: '0.5rem', 
-              backgroundColor: '#f8f9fa', 
-              borderRadius: '6px',
-              textAlign: 'center'
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+            <button style={{
+              padding: '0.75rem',
+              border: '1px solid #8247e5',
+              borderRadius: '8px',
+              backgroundColor: 'white',
+              cursor: 'pointer',
+              fontSize: '0.75rem',
+              fontWeight: '500',
+              color: '#8247e5'
             }}>
-              💰 USDT
-            </div>
-            <div style={{ 
-              padding: '0.5rem', 
-              backgroundColor: '#f8f9fa', 
-              borderRadius: '6px',
-              textAlign: 'center'
+              💰 Deposit
+            </button>
+            <button style={{
+              padding: '0.75rem',
+              border: '1px solid #8247e5',
+              borderRadius: '8px',
+              backgroundColor: 'white',
+              cursor: 'pointer',
+              fontSize: '0.75rem',
+              fontWeight: '500',
+              color: '#8247e5'
             }}>
-              💵 USDC
-            </div>
-            <div style={{ 
-              padding: '0.5rem', 
-              backgroundColor: '#f8f9fa', 
-              borderRadius: '6px',
-              textAlign: 'center'
-            }}>
-              📊 DAI
-            </div>
-            <div style={{ 
-              padding: '0.5rem', 
-              backgroundColor: '#f8f9fa', 
-              borderRadius: '6px',
-              textAlign: 'center'
-            }}>
-              ⚡ WETH
-            </div>
+              📤 Send
+            </button>
           </div>
         </div>
         

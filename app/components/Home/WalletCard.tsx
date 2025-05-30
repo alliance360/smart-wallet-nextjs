@@ -2,8 +2,11 @@
 
 import { useState } from 'react';
 import { useActiveAccount, useWalletBalance } from "thirdweb/react";
-import { polygon } from "thirdweb/chains"; // Changed from ethereum to polygon
+import { ConnectButton } from "thirdweb/react";
+import { defineChain } from "thirdweb";
+import { polygon } from "thirdweb/chains";
 import { client } from "../../client";
+import { wallets } from "../../wallets";
 
 const SimpleModal = ({ 
   isOpen, 
@@ -48,7 +51,7 @@ const SimpleModal = ({
           onClick={onClose}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: '#8247e5', // Polygon purple
+            backgroundColor: '#8247e5',
             color: 'white',
             border: 'none',
             borderRadius: '4px',
@@ -66,16 +69,14 @@ export default function WalletCard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const account = useActiveAccount();
   
-  // Get MATIC balance from Polygon network
   const { data: balance, isLoading } = useWalletBalance({
     client,
-    chain: polygon, // Using Polygon instead of Ethereum
+    chain: polygon,
     address: account?.address,
   });
 
-  // Show real MATIC balance if connected, otherwise show placeholder
   const displayBalance = account && balance && !isLoading ? 
-    `${parseFloat(balance.displayValue).toFixed(4)} MATIC` : // MATIC instead of ETH
+    `${parseFloat(balance.displayValue).toFixed(4)} MATIC` : 
     "$ 2,562.50";
 
   return (
@@ -87,7 +88,6 @@ export default function WalletCard() {
             <div className="left">
               <span className="title">Total Balance</span>
               <h1 className="total">{displayBalance}</h1>
-              {/* Show wallet address if connected */}
               {account && (
                 <p style={{ fontSize: '12px', opacity: 0.8, margin: '5px 0 0 0' }}>
                   {account.address.slice(0, 8)}...{account.address.slice(-6)}
@@ -98,16 +98,87 @@ export default function WalletCard() {
               )}
             </div>
             <div className="right">
-              <button 
-                className="button" 
-                onClick={() => setActiveModal('deposit')}
-              >
-                <span>➕</span>
-              </button>
+              {/* Replace plus button with ConnectButton */}
+              <div style={{ display: 'flex', alignItems: 'center' }}>
+                <ConnectButton
+                  client={client}
+                  chain={defineChain(137)}
+                  wallets={wallets}
+                  supportedTokens={{
+                    137: [
+                      {
+                        address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+                        name: "USD Tether",
+                        symbol: "USDT",
+                      },
+                      {
+                        address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                        name: "USD Coin",
+                        symbol: "USDC",
+                      },
+                      {
+                        address: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+                        name: "Dai Stablecoin",
+                        symbol: "DAI",
+                      },
+                    ],
+                  }}
+                  accountAbstraction={{
+                    chain: defineChain(137),
+                    sponsorGas: true,
+                  }}
+                  appMetadata={{
+                    name: "Smart Wallet",
+                    url: "https://finance.alliance360.club",
+                    description: "Your digital wallet application",
+                    logoUrl: "/assets/img/icon/192x192.png",
+                  }}
+                  connectModal={{ 
+                    size: "compact",
+                    titleIcon: "/assets/img/icon/192x192.png",
+                  }}
+                  connectButton={{
+                    label: "Connect",
+                    style: {
+                      background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "12px",
+                      width: "auto",
+                      height: "40px",
+                      padding: "0 16px",
+                      fontSize: "12px",
+                      fontWeight: "600",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 4px 12px rgba(130, 71, 229, 0.3)",
+                    }
+                  }}
+                  detailsButton={{
+                    style: {
+                      background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)",
+                      color: "white", 
+                      border: "none",
+                      borderRadius: "12px",
+                      width: "auto",
+                      height: "40px",
+                      padding: "0 12px",
+                      fontSize: "10px",
+                      fontWeight: "500",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: "0 4px 12px rgba(130, 71, 229, 0.3)",
+                    }
+                  }}
+                  theme="dark"
+                />
+              </div>
             </div>
           </div>
 
-          {/* Wallet Footer */}
+          {/* Rest of your wallet footer unchanged */}
           <div className="wallet-footer">
             <div className="item">
               <button onClick={() => setActiveModal('withdraw')}>
@@ -145,12 +216,7 @@ export default function WalletCard() {
         </div>
       </div>
 
-      {/* Modals */}
-      <SimpleModal 
-        isOpen={activeModal === 'deposit'} 
-        onClose={() => setActiveModal(null)} 
-        title="Add MATIC Balance"
-      />
+      {/* Modals unchanged */}
       <SimpleModal 
         isOpen={activeModal === 'withdraw'} 
         onClose={() => setActiveModal(null)} 
