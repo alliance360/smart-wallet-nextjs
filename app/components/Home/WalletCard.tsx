@@ -2,10 +2,9 @@
 
 import { useState } from 'react';
 import { useActiveAccount, useWalletBalance } from "thirdweb/react";
-import { ethereum } from "thirdweb/chains";
+import { polygon } from "thirdweb/chains"; // Changed from ethereum to polygon
 import { client } from "../../client";
 
-// Keep your existing SimpleModal component unchanged...
 const SimpleModal = ({ 
   isOpen, 
   onClose, 
@@ -44,12 +43,12 @@ const SimpleModal = ({
         onClick={(e) => e.stopPropagation()}
       >
         <h3>{title}</h3>
-        <p>Crypto functionality coming soon...</p>
+        <p>Polygon functionality coming soon...</p>
         <button 
           onClick={onClose}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: '#3b82f6',
+            backgroundColor: '#8247e5', // Polygon purple
             color: 'white',
             border: 'none',
             borderRadius: '4px',
@@ -67,16 +66,16 @@ export default function WalletCard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
   const account = useActiveAccount();
   
-  // Get real ETH balance
+  // Get MATIC balance from Polygon network
   const { data: balance, isLoading } = useWalletBalance({
     client,
-    chain: ethereum,
+    chain: polygon, // Using Polygon instead of Ethereum
     address: account?.address,
   });
 
-  // Show real balance if connected, otherwise show placeholder
+  // Show real MATIC balance if connected, otherwise show placeholder
   const displayBalance = account && balance && !isLoading ? 
-    `${parseFloat(balance.displayValue).toFixed(4)} ETH` : 
+    `${parseFloat(balance.displayValue).toFixed(4)} MATIC` : // MATIC instead of ETH
     "$ 2,562.50";
 
   return (
@@ -92,6 +91,9 @@ export default function WalletCard() {
               {account && (
                 <p style={{ fontSize: '12px', opacity: 0.8, margin: '5px 0 0 0' }}>
                   {account.address.slice(0, 8)}...{account.address.slice(-6)}
+                  <span style={{ color: '#8247e5', marginLeft: '8px', fontWeight: '600' }}>
+                    Polygon
+                  </span>
                 </p>
               )}
             </div>
@@ -105,7 +107,7 @@ export default function WalletCard() {
             </div>
           </div>
 
-          {/* Keep your existing wallet footer unchanged */}
+          {/* Wallet Footer */}
           <div className="wallet-footer">
             <div className="item">
               <button onClick={() => setActiveModal('withdraw')}>
@@ -143,26 +145,26 @@ export default function WalletCard() {
         </div>
       </div>
 
-      {/* Keep your existing modals unchanged */}
+      {/* Modals */}
       <SimpleModal 
         isOpen={activeModal === 'deposit'} 
         onClose={() => setActiveModal(null)} 
-        title="Add Balance"
+        title="Add MATIC Balance"
       />
       <SimpleModal 
         isOpen={activeModal === 'withdraw'} 
         onClose={() => setActiveModal(null)} 
-        title="Withdraw Money"
+        title="Withdraw MATIC"
       />
       <SimpleModal 
         isOpen={activeModal === 'send'} 
         onClose={() => setActiveModal(null)} 
-        title="Send Money"
+        title="Send MATIC"
       />
       <SimpleModal 
         isOpen={activeModal === 'exchange'} 
         onClose={() => setActiveModal(null)} 
-        title="Exchange Money"
+        title="Exchange MATIC"
       />
     </>
   );

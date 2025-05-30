@@ -1,10 +1,18 @@
 'use client';
 
-import { ConnectButton } from "thirdweb/react";
+import { ConnectButton, useActiveAccount, useWalletBalance } from "thirdweb/react";
+import { polygon } from "thirdweb/chains";
 import { client } from "../../client";
 import { wallets } from "../../wallets";
 
 export default function DesktopSidebar() {
+  const account = useActiveAccount();
+  const { data: balance } = useWalletBalance({
+    client,
+    chain: polygon,
+    address: account?.address,
+  });
+
   const menuItems = [
     { href: '/', icon: '🏠', label: 'Dashboard', active: true },
     { href: '/cards', icon: '💳', label: 'Cards', active: false },
@@ -12,6 +20,10 @@ export default function DesktopSidebar() {
     { href: '/transactions', icon: '💸', label: 'Transactions', active: false },
     { href: '/settings', icon: '⚙️', label: 'Settings', active: false },
   ];
+
+  const displayBalance = balance ? 
+    `${parseFloat(balance.displayValue).toFixed(4)} MATIC` : 
+    "0.0000 MATIC";
 
   return (
     <aside className="desktop-sidebar" style={{ 
@@ -42,7 +54,7 @@ export default function DesktopSidebar() {
           </h1>
         </div>
         
-        {/* Add ConnectButton to Sidebar */}
+        {/* ConnectButton */}
         <div style={{ marginBottom: '2rem' }}>
           <ConnectButton
             client={client}
@@ -60,7 +72,7 @@ export default function DesktopSidebar() {
             connectButton={{
               label: "Connect Wallet",
               style: {
-                background: "linear-gradient(135deg, #6236FF 0%, #4318FF 100%)",
+                background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)", // Polygon purple
                 color: "white",
                 border: "none",
                 borderRadius: "12px",
@@ -69,7 +81,7 @@ export default function DesktopSidebar() {
                 fontWeight: "600",
                 cursor: "pointer",
                 width: "100%",
-                boxShadow: "0 4px 12px rgba(98, 54, 255, 0.3)",
+                boxShadow: "0 4px 12px rgba(130, 71, 229, 0.3)",
               }
             }}
             detailsButton={{
@@ -93,16 +105,23 @@ export default function DesktopSidebar() {
           />
         </div>
         
-        {/* Balance Card - only show when connected */}
+        {/* Balance Card - Polygon themed */}
         <div style={{
-          backgroundColor: '#3b82f6',
+          background: 'linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)', // Polygon purple gradient
           color: 'white',
           padding: '1.5rem',
           borderRadius: '12px',
           marginBottom: '2rem'
         }}>
-          <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>Total Balance</div>
-          <div style={{ fontSize: '1.875rem', fontWeight: '700' }}>$ 2,562.50</div>
+          <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>Polygon Balance</div>
+          <div style={{ fontSize: '1.875rem', fontWeight: '700' }}>
+            {account ? displayBalance : "Connect Wallet"}
+          </div>
+          {account && (
+            <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '8px' }}>
+              Network: Polygon PoS
+            </div>
+          )}
         </div>
         
         {/* Navigation */}
@@ -117,8 +136,8 @@ export default function DesktopSidebar() {
                 padding: '0.875rem 1rem',
                 borderRadius: '8px',
                 textDecoration: 'none',
-                color: item.active ? '#3b82f6' : '#6b7280',
-                backgroundColor: item.active ? '#eff6ff' : 'transparent',
+                color: item.active ? '#8247e5' : '#6b7280', // Polygon purple for active
+                backgroundColor: item.active ? '#f3f0ff' : 'transparent',
                 marginBottom: '0.25rem',
                 fontSize: '0.95rem',
                 fontWeight: item.active ? '600' : '400'
@@ -145,26 +164,52 @@ export default function DesktopSidebar() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
             <button style={{
               padding: '0.75rem',
-              border: '1px solid #e5e7eb',
+              border: '1px solid #8247e5',
               borderRadius: '8px',
               backgroundColor: 'white',
               cursor: 'pointer',
               fontSize: '0.75rem',
-              fontWeight: '500'
+              fontWeight: '500',
+              color: '#8247e5'
             }}>
               💰 Deposit
             </button>
             <button style={{
               padding: '0.75rem',
-              border: '1px solid #e5e7eb',
+              border: '1px solid #8247e5',
               borderRadius: '8px',
               backgroundColor: 'white',
               cursor: 'pointer',
               fontSize: '0.75rem',
-              fontWeight: '500'
+              fontWeight: '500',
+              color: '#8247e5'
             }}>
               📤 Send
             </button>
+          </div>
+        </div>
+        
+        {/* Polygon Network Info */}
+        <div style={{ 
+          marginTop: '2rem', 
+          padding: '1rem',
+          backgroundColor: '#f8f9fa',
+          borderRadius: '8px',
+          textAlign: 'center'
+        }}>
+          <div style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '4px' }}>
+            Network
+          </div>
+          <div style={{ 
+            fontSize: '0.875rem', 
+            fontWeight: '600', 
+            color: '#8247e5',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '6px'
+          }}>
+            <span>🟣</span> Polygon PoS
           </div>
         </div>
       </div>

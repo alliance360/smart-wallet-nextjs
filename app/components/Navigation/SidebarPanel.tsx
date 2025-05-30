@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import { useActiveAccount, useWalletBalance } from "thirdweb/react";
+import { polygon } from "thirdweb/chains";
+import { client } from "../../client";
 
 interface SidebarPanelProps {
   isOpen: boolean;
@@ -6,7 +9,18 @@ interface SidebarPanelProps {
 }
 
 export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
+  const account = useActiveAccount();
+  const { data: balance } = useWalletBalance({
+    client,
+    chain: polygon,
+    address: account?.address,
+  });
+
   if (!isOpen) return null;
+
+  const displayBalance = balance ? 
+    `${parseFloat(balance.displayValue).toFixed(4)} MATIC` : 
+    "$ 2,562.50";
 
   return (
     <div className={`modal fade panelbox panelbox-left ${isOpen ? 'show' : ''}`} 
@@ -20,8 +34,15 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
                 <img src="/assets/img/sample/avatar/avatar1.jpg" alt="image" className="imaged w36" />
               </div>
               <div className="in">
-                <strong>Sebastian Doe</strong>
-                <div className="text-muted">4029209</div>
+                <strong>
+                  {account ? 
+                    `${account.address.slice(0, 6)}...${account.address.slice(-4)}` : 
+                    "Sebastian Doe"
+                  }
+                </strong>
+                <div className="text-muted">
+                  {account ? "Polygon Network" : "4029209"}
+                </div>
               </div>
               <button 
                 className="btn btn-link btn-icon sidebar-close" 
@@ -31,11 +52,23 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
               </button>
             </div>
 
-            {/* Balance */}
+            {/* Balance - Updated for Polygon */}
             <div className="sidebar-balance">
-              <div className="listview-title">Balance</div>
+              <div className="listview-title">
+                {account ? "Polygon Balance" : "Balance"}
+              </div>
               <div className="in">
-                <h1 className="amount">$ 2,562.50</h1>
+                <h1 className="amount">{displayBalance}</h1>
+                {account && (
+                  <div style={{ 
+                    fontSize: '12px', 
+                    opacity: 0.8, 
+                    color: '#8247e5',
+                    marginTop: '4px'
+                  }}>
+                    🟣 Polygon PoS Network
+                  </div>
+                )}
               </div>
             </div>
 
@@ -43,31 +76,31 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
             <div className="action-group">
               <Link href="/" className="action-button">
                 <div className="in">
-                  <div className="iconbox">
+                  <div className="iconbox" style={{ backgroundColor: '#8247e5' }}>
                     <span>➕</span>
                   </div>
-                  Deposit
+                  Deposit MATIC
                 </div>
               </Link>
               <Link href="/" className="action-button">
                 <div className="in">
-                  <div className="iconbox">
+                  <div className="iconbox" style={{ backgroundColor: '#8247e5' }}>
                     <span>⬇️</span>
                   </div>
-                  Withdraw
+                  Withdraw MATIC
                 </div>
               </Link>
               <Link href="/" className="action-button">
                 <div className="in">
-                  <div className="iconbox">
+                  <div className="iconbox" style={{ backgroundColor: '#8247e5' }}>
                     <span>➡️</span>
                   </div>
-                  Send
+                  Send MATIC
                 </div>
               </Link>
               <a href="/cards" className="action-button">
                 <div className="in">
-                  <div className="iconbox">
+                  <div className="iconbox" style={{ backgroundColor: '#8247e5' }}>
                     <span>💳</span>
                   </div>
                   My Cards
@@ -80,18 +113,18 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
             <ul className="listview flush transparent no-line image-listview">
               <li>
                 <Link href="/" className="item">
-                  <div className="icon-box bg-primary">
+                  <div className="icon-box" style={{ backgroundColor: '#8247e5' }}>
                     <span>📊</span>
                   </div>
                   <div className="in">
                     Overview
-                    <span className="badge badge-primary">10</span>
+                    <span className="badge" style={{ backgroundColor: '#8247e5' }}>10</span>
                   </div>
                 </Link>
               </li>
               <li>
                 <a href="/pages" className="item">
-                  <div className="icon-box bg-primary">
+                  <div className="icon-box" style={{ backgroundColor: '#8247e5' }}>
                     <span>📄</span>
                   </div>
                   <div className="in">Pages</div>
@@ -99,7 +132,7 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
               </li>
               <li>
                 <a href="/components" className="item">
-                  <div className="icon-box bg-primary">
+                  <div className="icon-box" style={{ backgroundColor: '#8247e5' }}>
                     <span>⚙️</span>
                   </div>
                   <div className="in">Components</div>
@@ -107,7 +140,7 @@ export default function SidebarPanel({ isOpen, onClose }: SidebarPanelProps) {
               </li>
               <li>
                 <a href="/cards" className="item">
-                  <div className="icon-box bg-primary">
+                  <div className="icon-box" style={{ backgroundColor: '#8247e5' }}>
                     <span>💳</span>
                   </div>
                   <div className="in">My Cards</div>
