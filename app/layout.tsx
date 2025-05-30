@@ -1,5 +1,6 @@
 import './globals.css'
-import ResponsiveLayout from './components/Layout/ResponsiveLayout'
+import { ThirdwebProvider } from "thirdweb/react";
+import AuthWrapper from './components/Auth/AuthWrapper'
 import Script from 'next/script'
 
 export const metadata = {
@@ -7,9 +8,11 @@ export const metadata = {
   description: 'Your digital wallet application',
   manifest: '/manifest.json',
 }
+
 export const viewport = {
-  themeColor: '#000000',
+  themeColor: '#6236FF',
 }
+
 export default function RootLayout({
   children,
 }: {
@@ -24,17 +27,20 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="theme-color" content="#000000" />
         <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="32x32" />
         <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon/192x192.png" />
       </head>
       <body>
-        <div id="loader" style={{display: 'none'}}>
-          <img src="/assets/img/loading-icon.png" alt="icon" className="loading-icon" />
-        </div>
-        <ResponsiveLayout>{children}</ResponsiveLayout>
+        <ThirdwebProvider>
+          <div id="loader" style={{display: 'none'}}>
+            <img src="/assets/img/loading-icon.png" alt="icon" className="loading-icon" />
+          </div>
+          
+          <AuthWrapper>
+            {children}
+          </AuthWrapper>
+        </ThirdwebProvider>
         
-        {/* Load Ionicons script asynchronously */}
         <Script 
           src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js" 
           type="module"
