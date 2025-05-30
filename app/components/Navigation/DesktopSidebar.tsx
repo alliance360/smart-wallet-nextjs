@@ -1,6 +1,7 @@
 'use client';
 
 import { ConnectButton, useActiveAccount, useWalletBalance } from "thirdweb/react";
+import { defineChain } from "thirdweb";
 import { polygon } from "thirdweb/chains";
 import { client } from "../../client";
 import { wallets } from "../../wallets";
@@ -54,11 +55,36 @@ export default function DesktopSidebar() {
           </h1>
         </div>
         
-        {/* ConnectButton */}
+        {/* Enhanced ConnectButton with Polygon tokens */}
         <div style={{ marginBottom: '2rem' }}>
           <ConnectButton
             client={client}
+            chain={defineChain(137)} // Polygon mainnet
             wallets={wallets}
+            supportedTokens={{
+              // Polygon mainnet supported tokens
+              137: [
+                {
+                  address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // USDT
+                  name: "USD Tether",
+                  symbol: "USDT",
+                },
+                {
+                  address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", // USDC
+                  name: "USD Coin",
+                  symbol: "USDC",
+                },
+                {
+                  address: "0x61590e467DdE0043dDD499F4c10b2a78dAEc3f7a", // PAX on Polygon
+                  name: "PAX Stablecoin",
+                  symbol: "PAX",
+                },
+              ],
+            }}
+            accountAbstraction={{
+              chain: defineChain(137),
+              sponsorGas: true,
+            }}
             appMetadata={{
               name: "Smart Wallet",
               url: "https://finance.alliance360.club",
@@ -72,7 +98,7 @@ export default function DesktopSidebar() {
             connectButton={{
               label: "Connect Wallet",
               style: {
-                background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)", // Polygon purple
+                background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)",
                 color: "white",
                 border: "none",
                 borderRadius: "12px",
@@ -105,9 +131,9 @@ export default function DesktopSidebar() {
           />
         </div>
         
-        {/* Balance Card - Polygon themed */}
+        {/* Balance Card */}
         <div style={{
-          background: 'linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)', // Polygon purple gradient
+          background: 'linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)',
           color: 'white',
           padding: '1.5rem',
           borderRadius: '12px',
@@ -119,7 +145,7 @@ export default function DesktopSidebar() {
           </div>
           {account && (
             <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '8px' }}>
-              Network: Polygon PoS
+              Network: Polygon PoS • Gas Sponsored
             </div>
           )}
         </div>
@@ -136,7 +162,7 @@ export default function DesktopSidebar() {
                 padding: '0.875rem 1rem',
                 borderRadius: '8px',
                 textDecoration: 'none',
-                color: item.active ? '#8247e5' : '#6b7280', // Polygon purple for active
+                color: item.active ? '#8247e5' : '#6b7280',
                 backgroundColor: item.active ? '#f3f0ff' : 'transparent',
                 marginBottom: '0.25rem',
                 fontSize: '0.95rem',
@@ -151,7 +177,7 @@ export default function DesktopSidebar() {
           ))}
         </nav>
 
-        {/* Quick Actions */}
+        {/* Supported Tokens Display */}
         <div style={{ marginTop: '2rem' }}>
           <h3 style={{ 
             fontSize: '0.875rem', 
@@ -159,37 +185,50 @@ export default function DesktopSidebar() {
             color: '#6b7280',
             marginBottom: '1rem' 
           }}>
-            Quick Actions
+            Supported Tokens
           </h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-            <button style={{
-              padding: '0.75rem',
-              border: '1px solid #8247e5',
-              borderRadius: '8px',
-              backgroundColor: 'white',
-              cursor: 'pointer',
-              fontSize: '0.75rem',
-              fontWeight: '500',
-              color: '#8247e5'
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: '1fr 1fr', 
+            gap: '0.5rem',
+            fontSize: '0.75rem'
+          }}>
+            <div style={{ 
+              padding: '0.5rem', 
+              backgroundColor: '#f8f9fa', 
+              borderRadius: '6px',
+              textAlign: 'center'
             }}>
-              💰 Deposit
-            </button>
-            <button style={{
-              padding: '0.75rem',
-              border: '1px solid #8247e5',
-              borderRadius: '8px',
-              backgroundColor: 'white',
-              cursor: 'pointer',
-              fontSize: '0.75rem',
-              fontWeight: '500',
-              color: '#8247e5'
+              💰 USDT
+            </div>
+            <div style={{ 
+              padding: '0.5rem', 
+              backgroundColor: '#f8f9fa', 
+              borderRadius: '6px',
+              textAlign: 'center'
             }}>
-              📤 Send
-            </button>
+              💵 USDC
+            </div>
+            <div style={{ 
+              padding: '0.5rem', 
+              backgroundColor: '#f8f9fa', 
+              borderRadius: '6px',
+              textAlign: 'center'
+            }}>
+              📊 DAI
+            </div>
+            <div style={{ 
+              padding: '0.5rem', 
+              backgroundColor: '#f8f9fa', 
+              borderRadius: '6px',
+              textAlign: 'center'
+            }}>
+              ⚡ WETH
+            </div>
           </div>
         </div>
         
-        {/* Polygon Network Info */}
+        {/* Network Info */}
         <div style={{ 
           marginTop: '2rem', 
           padding: '1rem',
@@ -210,6 +249,9 @@ export default function DesktopSidebar() {
             gap: '6px'
           }}>
             <span>🟣</span> Polygon PoS
+          </div>
+          <div style={{ fontSize: '0.625rem', color: '#8247e5', marginTop: '2px' }}>
+            Gas Sponsored ✨
           </div>
         </div>
       </div>

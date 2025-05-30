@@ -1,10 +1,10 @@
 'use client';
 
 import { ConnectButton } from "thirdweb/react";
+import { defineChain } from "thirdweb";
 import { client } from "../../client";
 import { wallets } from "../../wallets";
 
-// Make sure this interface is defined
 interface AppHeaderProps {
   onMenuClick: () => void;
 }
@@ -29,11 +29,36 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
           <span className="badge badge-danger">4</span>
         </a>
         
-        {/* ConnectButton for Mobile with Polygon theme */}
+        {/* Enhanced ConnectButton for Polygon with supported tokens */}
         <div className="headerButton">
           <ConnectButton
             client={client}
+            chain={defineChain(137)} // Polygon mainnet chain ID
             wallets={wallets}
+            supportedTokens={{
+              // Polygon mainnet supported tokens
+              137: [
+                {
+                  address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", // USDT on Polygon
+                  name: "USD Tether",
+                  symbol: "USDT",
+                },
+                {
+                  address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", // USDC on Polygon
+                  name: "USD Coin", 
+                  symbol: "USDC",
+                },
+                {
+                  address: "0x61590e467DdE0043dDD499F4c10b2a78dAEc3f7a", // PAX on Polygon
+                  name: "PAX Stablecoin",
+                  symbol: "PAX",
+                },
+              ],
+            }}
+            accountAbstraction={{
+              chain: defineChain(137), // Polygon mainnet
+              sponsorGas: true, // Sponsor gas fees for users
+            }}
             appMetadata={{
               name: "Smart Wallet",
               url: "https://finance.alliance360.club",
