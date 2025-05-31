@@ -16,14 +16,13 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
         </button>
       </div>
       <div className="pageTitle">
-        <img src="/assets/img/logo.png" alt="logo" className="logo" />
+        <img src="/assets/img/A360logo.webp" alt="logo" className="logo" />
       </div>
       <div className="right">
         <a href="/notifications" className="headerButton">
           <span className="icon">🔔</span>
           <span className="badge badge-danger">4</span>
         </a>
-        {/* ConnectButton removed from header - now in WalletCard */}
       </div>
     </div>
   );

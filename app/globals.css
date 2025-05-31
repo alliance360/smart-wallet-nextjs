@@ -142,7 +142,7 @@ a:hover, a:active, a:focus {
 }
 
 .appHeader.bg-primary:before {
-  background: #6236FF !important;
+  background: #163563 !important;
 }
 
 .appHeader.bg-secondary:before {
@@ -1202,7 +1202,7 @@ body.animationGoBack:after {
   top: 0;
   bottom: 0;
   width: 100%;
-  background-color: #6236FF;
+  background-color: #163563;
   background-image: url("/assets/img/loading-icon.pngg");
   background-repeat: no-repeat;
   background-size: 42px auto;
@@ -2991,7 +2991,7 @@ a.badge-dark {
 }
 
 .bg-primary {
-  background: #6236FF !important;
+  background: #163563 !important;
   color: #FFF;
 }
 
@@ -3991,8 +3991,8 @@ textarea,
 }
 
 .form-check-input:checked ~ .form-check-label:after {
-  background-color: #6236FF;
-  border-color: #6236FF !important;
+  background-color: #163563;
+  border-color: #163563 !important;
 }
 
 .form-check-input:checked ~ .form-check-label:before {
@@ -5140,7 +5140,7 @@ textarea,
   content: "";
   display: block;
   height: 140px;
-  background: #6236FF;
+  background: #163563;
 }
 
 .wallet-card {

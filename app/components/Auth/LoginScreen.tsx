@@ -21,7 +21,7 @@ export default function LoginScreen({ onLoginSuccess }: LoginScreenProps) {
       <div className="login-container">
         {/* Your wallet app branding */}
         <div className="login-header">
-          <img src="/assets/img/logo.png" alt="Smart Wallet" className="login-logo" />
+          <img src="/assets/img/A360logo.webp" alt="Smart Wallet" className="login-logo" />
           <h1>Smart Wallet</h1>
           <p>Connect your wallet to get started</p>
         </div>
