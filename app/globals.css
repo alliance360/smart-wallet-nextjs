@@ -6,7 +6,8 @@ body {
   line-height: 1.6rem;
   letter-spacing: 0.004em;
   color: #958d9e;
-  background: #EDEDF5;
+  background: #e0e0e4;
+  background-color: #b0b0bd;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -7662,4 +7663,27 @@ body.dark-mode .cookies-box {
 /* And the header specifically */
 .appHeader.bg-primary {
   background-color: #163563 !important;
+}
+
+/* App background override */
+#appCapsule {
+  background-color: #f0f0f0 !important;
+}
+
+/* Fix notification bell link styling */
+.headerButton {
+  text-decoration: none !important;
+}
+
+.headerButton:hover {
+  text-decoration: none !important;
+}
+/* Add spacing between stat boxes */
+.stat-box {
+  margin-bottom: 5px !important;
+}
+
+/* Spacing for stats section only */
+.section .goals {
+  margin-bottom: 20px !important;
 }

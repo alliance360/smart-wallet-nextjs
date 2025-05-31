@@ -21,7 +21,7 @@ export default function AppHeader({ onMenuClick }: AppHeaderProps) {
       <div className="right">
         <a href="/notifications" className="headerButton">
           <span className="icon">🔔</span>
-          <span className="badge badge-danger">4</span>
+          {/* <span className="badge badge-danger">4</span> */}
         </a>
       </div>
     </div>

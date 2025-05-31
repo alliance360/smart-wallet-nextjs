@@ -1,9 +1,9 @@
 export default function StatsSection() {
   const stats = [
-    { title: 'Income', value: '$ 552.95', color: 'text-success' },
-    { title: 'Expenses', value: '$ 86.45', color: 'text-danger' },
-    { title: 'Total Bills', value: '$ 53.25', color: '' },
-    { title: 'Savings', value: '$ 120.99', color: '' },
+    { title: 'Smart Wallet (crypto)', value: '$ 552.95', color: 'text-success' },
+    { title: 'NFT Value', value: '$ 86.45', color: 'text-success' },
+    { title: 'Cashback Card Balance', value: '$ 53.25', color: 'text-success' },
+    { title: 'Commissions to come', value: '$ 1120.99', color: 'text-warning' },
   ];
 
   return (

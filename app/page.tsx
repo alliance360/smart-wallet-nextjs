@@ -14,11 +14,13 @@ export default function HomePage() {
       <WalletCard />
       <StatsSection />
       <TransactionsSection />
-      <MyCardsSection />
-      <SendMoneySection />
-      <MonthlyBillsSection />
+{/* 
+  <MyCardsSection />
+  <SendMoneySection />
+  <MonthlyBillsSection />
+*/}
       <SavingGoalsSection />
-      <NewsSection />
+      {/* <NewsSection /> */}
       <AppFooter />
     </>
   );
