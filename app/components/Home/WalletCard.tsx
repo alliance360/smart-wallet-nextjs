@@ -51,7 +51,7 @@ const SimpleModal = ({
           onClick={onClose}
           style={{
             padding: '0.5rem 1rem',
-            backgroundColor: '#8247e5',
+            backgroundColor: '#163563',
             color: 'white',
             border: 'none',
             borderRadius: '4px',
@@ -89,9 +89,9 @@ export default function WalletCard() {
               <span className="title">Total Balance</span>
               <h1 className="total">{displayBalance}</h1>
               {account && (
-                <p style={{ fontSize: '12px', opacity: 0.8, margin: '5px 0 0 0' }}>
+                <p style={{ fontSize: '14px', opacity: 0.8, margin: '5px 0 0 0' }}>
                   {account.address.slice(0, 8)}...{account.address.slice(-6)}
-                  <span style={{ color: '#8247e5', marginLeft: '8px', fontWeight: '600' }}>
+                  <span style={{ color: '#163563', marginLeft: '8px', fontWeight: '800' }}>
                     Polygon
                   </span>
                 </p>
@@ -140,24 +140,24 @@ export default function WalletCard() {
                   connectButton={{
                     label: "Connect",
                     style: {
-                      background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)",
+                      background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
                       color: "white",
                       border: "none",
                       borderRadius: "12px",
                       width: "auto",
                       height: "40px",
                       padding: "0 16px",
-                      fontSize: "12px",
+                      fontSize: "16px",
                       fontWeight: "600",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      boxShadow: "0 4px 12px rgba(130, 71, 229, 0.3)",
+                      boxShadow: "0 4px 12px rgba(22, 53, 99, 0.3)",
                     }
                   }}
                   detailsButton={{
                     style: {
-                      background: "linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)",
+                      background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
                       color: "white", 
                       border: "none",
                       borderRadius: "12px",
@@ -169,7 +169,7 @@ export default function WalletCard() {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      boxShadow: "0 4px 12px rgba(130, 71, 229, 0.3)",
+                      boxShadow: "0 4px 12px rgba(22, 53, 99, 0.3)",
                     }
                   }}
                   theme="dark"

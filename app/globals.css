@@ -126,7 +126,7 @@ a:hover, a:active, a:focus {
 }
 
 .appHeader .pageTitle .logo {
-  max-height: 24px;
+  max-height: 36px;
 }
 
 .appHeader.text-light {
@@ -7646,4 +7646,20 @@ body.dark-mode.rtl-mode .notification-dialog.android-style .notification-footer 
 
 body.dark-mode .cookies-box {
   background: #20183b;
+}
+
+/* Update Bootstrap primary color variables */
+:root {
+  --bs-primary-rgb: 22, 53, 99; /* RGB values for #163563 */
+  --bs-primary: #163563;
+}
+
+/* Also override the class directly */
+.bg-primary {
+  background-color: #163563 !important;
+}
+
+/* And the header specifically */
+.appHeader.bg-primary {
+  background-color: #163563 !important;
 }
