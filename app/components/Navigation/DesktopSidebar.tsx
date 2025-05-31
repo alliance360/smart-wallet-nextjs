@@ -43,18 +43,10 @@ export default function DesktopSidebar() {
             marginBottom: '1rem' 
           }}>
             <img 
-              src="/assets/img/logo.png" 
+              src="/assets/img/A360logo.webp" 
               alt="logo" 
               style={{ height: '40px', marginRight: '12px' }}
             />
-            <h1 style={{ 
-              fontSize: '1.5rem', 
-              fontWeight: '600', 
-              margin: 0,
-              color: '#1f2937'
-            }}>
-              Smart Wallet
-            </h1>
           </div>
         </div>
         
@@ -66,9 +58,9 @@ export default function DesktopSidebar() {
           borderRadius: '12px',
           marginBottom: '2rem'
         }}>
-          <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>Polygon Balance</div>
+          <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>PAX Balance</div>
           <div style={{ fontSize: '1.875rem', fontWeight: '700' }}>
-            {account ? displayBalance : "Connect Wallet"}
+            {account ? displayBalance : "Wallet not connected"}
           </div>
           {account && (
             <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '8px' }}>

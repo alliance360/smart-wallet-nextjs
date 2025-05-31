@@ -9,21 +9,7 @@ export default function DesktopHeader() {
       alignItems: 'center'
     }}>
       <div>
-        <h2 style={{ 
-          fontSize: '1.875rem', 
-          fontWeight: '600', 
-          margin: 0,
-          color: '#1f2937'
-        }}>
-          Dashboard
-        </h2>
-        <p style={{ 
-          color: '#6b7280', 
-          margin: '4px 0 0 0',
-          fontSize: '0.875rem'
-        }}>
-          Welcome back to your wallet
-        </p>
+
       </div>
       
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
