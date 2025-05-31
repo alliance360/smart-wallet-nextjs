@@ -7680,7 +7680,7 @@ body.dark-mode .cookies-box {
 }
 /* Add spacing between stat boxes */
 .stat-box {
-  margin-bottom: 5px !important;
+  margin-bottom: 10px !important;
 }
 
 /* Spacing for stats section only */

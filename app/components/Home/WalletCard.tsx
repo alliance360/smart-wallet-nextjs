@@ -76,8 +76,8 @@ export default function WalletCard() {
   });
 
   const displayBalance = account && balance && !isLoading ? 
-    `${parseFloat(balance.displayValue).toFixed(4)} MATIC` : 
-    "$ 2,562.50";
+    `$ ${parseFloat(balance.displayValue).toFixed(4)}` : 
+    "$ 0.00";
 
   return (
     <>
@@ -181,34 +181,26 @@ export default function WalletCard() {
           {/* Rest of your wallet footer unchanged */}
           <div className="wallet-footer">
             <div className="item">
-              <button onClick={() => setActiveModal('withdraw')}>
-                <div className="icon-wrapper bg-danger">
-                  <span>⬇️</span>
-                </div>
-                <strong>Withdraw</strong>
+              <div onClick={() => setActiveModal('withdraw')}>
+                <span style={{ fontSize: '48px' }}>🏪</span>
+                <strong>Marketplace</strong>
+              </div>
+            </div>
+            <div className="item">
+              <button onClick={() => setActiveModal('send')}>
+                <span style={{ fontSize: '48px' }}>⚙️</span>
+                <strong>Back-Office</strong>
               </button>
             </div>
             <div className="item">
               <button onClick={() => setActiveModal('send')}>
-                <div className="icon-wrapper">
-                  <span>➡️</span>
-                </div>
-                <strong>Send</strong>
+                <span style={{ fontSize: '48px' }}>💰</span>
+                <strong>Crowdfunding</strong>
               </button>
             </div>
             <div className="item">
-              <a href="/cards">
-                <div className="icon-wrapper bg-success">
-                  <span>💳</span>
-                </div>
-                <strong>Cards</strong>
-              </a>
-            </div>
-            <div className="item">
               <button onClick={() => setActiveModal('exchange')}>
-                <div className="icon-wrapper bg-warning">
-                  <span>🔄</span>
-                </div>
+                <span style={{ fontSize: '48px' }}>🔀</span>
                 <strong>Exchange</strong>
               </button>
             </div>
