@@ -7687,3 +7687,7 @@ body.dark-mode .cookies-box {
 .section .goals {
   margin-bottom: 20px !important;
 }
+/* Force margin on wallet footer */
+.wallet-footer {
+  margin-top: 48px !important;
+}

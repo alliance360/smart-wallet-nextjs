@@ -76,7 +76,7 @@ export default function WalletCard() {
   });
 
   const displayBalance = account && balance && !isLoading ? 
-    `$ ${parseFloat(balance.displayValue).toFixed(4)}` : 
+    `$ ${parseFloat(balance.displayValue).toFixed(2)}` : 
     "$ 0.00";
 
   return (
@@ -192,7 +192,7 @@ export default function WalletCard() {
           </div>
 
           {/* Wallet Footer */}
-          <div className="wallet-footer style={{ marginTop: '32px' }}">
+          <div className="wallet-footer">
             <div className="item">
               <div onClick={() => setActiveModal('withdraw')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '32px' }}>🏪</span>
