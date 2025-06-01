@@ -4,7 +4,7 @@ import ResponsiveLayout from './components/Layout/ResponsiveLayout'
 import Script from 'next/script'
 
 export const metadata = {
-  title: 'Smart Wallet',
+  title: 'A360 Smart Wallet',
   description: 'Your digital wallet application',
   manifest: '/manifest.json',
 }
@@ -27,8 +27,10 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600&display=swap" rel="stylesheet" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="icon" type="image/png" href="/assets/img/favicon.png" sizes="32x32" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/img/icon/192x192.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body>
         {/* Wrap everything in ThirdwebProvider */}

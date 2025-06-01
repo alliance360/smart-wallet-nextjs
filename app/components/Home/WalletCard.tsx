@@ -93,7 +93,7 @@ export default function WalletCard() {
               marginBottom: '16px'
             }}>
               <div className="left">
-                <span className="title">Your Total A360 Wealth (usd)</span>
+                <span className="title">Your Total A360 Wealth (USD)</span>
                 <h1 className="total">{displayBalance}</h1>
                 {/* {account && (
                   <p style={{ fontSize: '14px', opacity: 0.8, margin: '5px 0 0 0' }}>
@@ -201,7 +201,7 @@ export default function WalletCard() {
             </div>
             <div className="item">
               <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '32px' }}>⚙️</span>
+                <span style={{ fontSize: '32px' }}>💼</span>
                 <strong>Back-Office</strong>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function WalletCard() {
             </div>
             <div className="item">
               <div onClick={() => setActiveModal('exchange')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '32px' }}>🔀</span>
+                <span style={{ fontSize: '32px' }}>👨‍👩‍👧‍👦</span>
                 <strong>Social</strong>
               </div>
             </div>
