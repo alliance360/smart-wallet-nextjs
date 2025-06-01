@@ -13,7 +13,7 @@ export default function DesktopLayout({ children }: DesktopLayoutProps) {
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <DesktopHeader />
         
-        <main style={{ flex: 1, padding: '2rem' }}>
+        <main style={{ flex: 1 }}>
           {children}
         </main>
       </div>
