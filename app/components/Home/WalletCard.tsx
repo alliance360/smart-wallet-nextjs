@@ -83,146 +83,159 @@ export default function WalletCard() {
     <>
       <div className="section wallet-card-section pt-1">
         <div className="wallet-card">
-          {/* Balance */}
-          <div className="balance">
-            <div className="left">
-              <span className="title">Total Balance</span>
-              <h1 className="total">{displayBalance}</h1>
-              {account && (
-                <p style={{ fontSize: '14px', opacity: 0.8, margin: '5px 0 0 0' }}>
-                  {account.address.slice(0, 8)}...{account.address.slice(-6)}
-                  <span style={{ color: '#163563', marginLeft: '8px', fontWeight: '800' }}>
-                    Polygon
-                  </span>
-                </p>
-              )}
-            </div>
-            <div className="right">
-              {/* Replace plus button with ConnectButton */}
-              <div style={{ display: 'flex', alignItems: 'center' }}>
-                <ConnectButton
-                  client={client}
-                  chain={defineChain(137)}
-                  wallets={wallets}
-                  supportedTokens={{
-                    137: [
-                      {
-                        address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-                        name: "USD Tether",
-                        symbol: "USDT",
-                      },
-                      {
-                        address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-                        name: "USD Coin",
-                        symbol: "USDC",
-                      },
-                      {
-                        address: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-                        name: "Dai Stablecoin",
-                        symbol: "DAI",
-                      },
-                    ],
-                  }}
-                  accountAbstraction={{
-                    chain: defineChain(137),
-                    sponsorGas: true,
-                  }}
-                  appMetadata={{
-                    name: "Smart Wallet",
-                    url: "https://finance.alliance360.club",
-                    description: "Your digital wallet application",
-                    logoUrl: "/assets/img/icon/192x192.png",
-                  }}
-                  connectModal={{ 
-                    size: "compact",
-                    titleIcon: "/assets/img/icon/192x192.png",
-                  }}
-                  connectButton={{
-                    label: "Connect",
-                    style: {
-                      background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
-                      color: "white",
-                      border: "none",
-                      borderRadius: "12px",
-                      width: "auto",
-                      height: "40px",
-                      padding: "0 16px",
-                      fontSize: "16px",
-                      fontWeight: "600",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      boxShadow: "0 4px 12px rgba(22, 53, 99, 0.3)",
-                    }
-                  }}
-                  detailsButton={{
-                    style: {
-                      background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
-                      color: "white", 
-                      border: "none",
-                      borderRadius: "12px",
-                      width: "auto",
-                      height: "40px",
-                      padding: "0 12px",
-                      fontSize: "10px",
-                      fontWeight: "500",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      boxShadow: "0 4px 12px rgba(22, 53, 99, 0.3)",
-                    }
-                  }}
-                  theme="dark"
-                />
+          {/* Balance - Restructured for mobile */}
+          <div className="balance" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+            {/* Balance Info Section */}
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'flex-start',
+              marginBottom: '16px'
+            }}>
+              <div className="left">
+                <span className="title">Total Balance</span>
+                <h1 className="total">{displayBalance}</h1>
+                {account && (
+                  <p style={{ fontSize: '14px', opacity: 0.8, margin: '5px 0 0 0' }}>
+                    {account.address.slice(0, 8)}...{account.address.slice(-6)}
+                    <span style={{ color: '#163563', marginLeft: '8px', fontWeight: '800' }}>
+                      Polygon
+                    </span>
+                  </p>
+                )}
               </div>
+            </div>
+
+            {/* ConnectButton Section - Now below the balance */}
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'center',
+              width: '100%'
+            }}>
+              <ConnectButton
+                client={client}
+                chain={defineChain(137)}
+                wallets={wallets}
+                supportedTokens={{
+                  137: [
+                    {
+                      address: "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+                      name: "USD Tether",
+                      symbol: "USDT",
+                    },
+                    {
+                      address: "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+                      name: "USD Coin",
+                      symbol: "USDC",
+                    },
+                    {
+                      address: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+                      name: "Dai Stablecoin",
+                      symbol: "DAI",
+                    },
+                  ],
+                }}
+                accountAbstraction={{
+                  chain: defineChain(137),
+                  sponsorGas: true,
+                }}
+                appMetadata={{
+                  name: "Smart Wallet",
+                  url: "https://finance.alliance360.club",
+                  description: "Your digital wallet application",
+                  logoUrl: "/assets/img/icon/192x192.png",
+                }}
+                connectModal={{ 
+                  size: "compact",
+                  titleIcon: "/assets/img/icon/192x192.png",
+                }}
+                connectButton={{
+                  label: "Connect Wallet",
+                  style: {
+                    background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
+                    color: "white",
+                    border: "none",
+                    borderRadius: "12px",
+                    width: "100%", // Full width for mobile
+                    maxWidth: "280px", // But not too wide
+                    height: "44px", // Slightly taller for mobile
+                    padding: "0 16px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 4px 12px rgba(22, 53, 99, 0.3)",
+                  }
+                }}
+                detailsButton={{
+                  style: {
+                    background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
+                    color: "white", 
+                    border: "none",
+                    borderRadius: "12px",
+                    width: "100%", // Full width for mobile
+                    maxWidth: "280px", // But not too wide
+                    height: "44px", // Consistent height
+                    padding: "0 12px",
+                    fontSize: "12px",
+                    fontWeight: "500",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: "0 4px 12px rgba(22, 53, 99, 0.3)",
+                  }
+                }}
+                theme="dark"
+              />
             </div>
           </div>
 
-          {/* Rest of your wallet footer unchanged */}
+          {/* Wallet Footer */}
           <div className="wallet-footer">
             <div className="item">
-              <div onClick={() => setActiveModal('withdraw')}>
+              <div onClick={() => setActiveModal('withdraw')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '48px' }}>🏪</span>
                 <strong>Marketplace</strong>
               </div>
             </div>
             <div className="item">
-              <button onClick={() => setActiveModal('send')}>
+              <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '48px' }}>⚙️</span>
                 <strong>Back-Office</strong>
-              </button>
+              </div>
             </div>
             <div className="item">
-              <button onClick={() => setActiveModal('send')}>
+              <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '48px' }}>💰</span>
                 <strong>Crowdfunding</strong>
-              </button>
+              </div>
             </div>
             <div className="item">
-              <button onClick={() => setActiveModal('exchange')}>
+              <div onClick={() => setActiveModal('exchange')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '48px' }}>🔀</span>
                 <strong>Exchange</strong>
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Modals unchanged */}
+      {/* Modals */}
       <SimpleModal 
         isOpen={activeModal === 'withdraw'} 
         onClose={() => setActiveModal(null)} 
-        title="Withdraw MATIC"
+        title="Marketplace"
       />
       <SimpleModal 
         isOpen={activeModal === 'send'} 
         onClose={() => setActiveModal(null)} 
-        title="Send MATIC"
+        title="Back-Office"
       />
       <SimpleModal 
         isOpen={activeModal === 'exchange'} 
         onClose={() => setActiveModal(null)} 
-        title="Exchange MATIC"
+        title="Exchange"
       />
     </>
   );

@@ -5,6 +5,7 @@ import { defineChain } from "thirdweb";
 import { polygon } from "thirdweb/chains";
 import { client } from "../../client";
 import { wallets } from "../../wallets";
+import QRCodeComponent from "../PWA/QRCodeComponent";
 
 export default function DesktopSidebar() {
   const account = useActiveAccount();
@@ -50,23 +51,35 @@ export default function DesktopSidebar() {
           </div>
         </div>
         
-        {/* Balance Card */}
-        <div style={{
-          background: 'linear-gradient(135deg, #8247e5 0%, #6f42c1 100%)',
-          color: 'white',
+        {/* NEW: QR Code Section for Mobile Installation */}
+        <div style={{ 
+          marginBottom: '2rem',
           padding: '1.5rem',
+          backgroundColor: '#f8f9fa',
           borderRadius: '12px',
-          marginBottom: '2rem'
+          textAlign: 'center',
+          border: '1px solid #e5e7eb'
         }}>
-          <div style={{ fontSize: '0.875rem', opacity: 0.8 }}>PAX Balance</div>
-          <div style={{ fontSize: '1.875rem', fontWeight: '700' }}>
-            {account ? displayBalance : "Wallet not connected"}
-          </div>
-          {account && (
-            <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '8px' }}>
-              Network: Polygon PoS • Gas Sponsored
-            </div>
-          )}
+          <h3 style={{ 
+            fontSize: '0.875rem', 
+            fontWeight: '600', 
+            color: '#163563',
+            marginBottom: '1rem',
+            margin: '0 0 1rem 0'
+          }}>
+            📱 Install on Mobile
+          </h3>
+          
+          <QRCodeComponent />
+          
+          <p style={{ 
+            fontSize: '0.75rem', 
+            color: '#6b7280',
+            margin: '1rem 0 0 0',
+            lineHeight: '1.4'
+          }}>
+            Scan with your phone to install<br />Smart Wallet as an app
+          </p>
         </div>
         
         {/* Navigation */}
