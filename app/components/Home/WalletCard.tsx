@@ -93,16 +93,16 @@ export default function WalletCard() {
               marginBottom: '16px'
             }}>
               <div className="left">
-                <span className="title">Total Balance</span>
+                <span className="title">Your Total A360 Wealth (usd)</span>
                 <h1 className="total">{displayBalance}</h1>
-                {account && (
+                {/* {account && (
                   <p style={{ fontSize: '14px', opacity: 0.8, margin: '5px 0 0 0' }}>
                     {account.address.slice(0, 8)}...{account.address.slice(-6)}
                     <span style={{ color: '#163563', marginLeft: '8px', fontWeight: '800' }}>
                       Polygon
                     </span>
                   </p>
-                )}
+                )} */}
               </div>
             </div>
 
