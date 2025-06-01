@@ -129,9 +129,9 @@ export default function WalletCard() {
                       symbol: "USDC",
                     },
                     {
-                      address: "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-                      name: "Dai Stablecoin",
-                      symbol: "DAI",
+                      address: "0x61590e467DdE0043dDD499F4c10b2a78dAEc3f7a",
+                      name: "PAX Token",
+                      symbol: "PAX",
                     },
                   ],
                 }}
