@@ -150,17 +150,17 @@ export default function WalletCard() {
                   titleIcon: "/assets/img/icon/192x192.png",
                 }}
                 connectButton={{
-                  label: "Connect Wallet",
+                  label: "Connect Smart Wallet",
                   style: {
                     background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
                     color: "white",
                     border: "none",
                     borderRadius: "12px",
-                    width: "100%", // Full width for mobile
-                    maxWidth: "280px", // But not too wide
-                    height: "44px", // Slightly taller for mobile
+                    width: "100%",
+                    maxWidth: "380px",
+                    height: "48px",
                     padding: "0 16px",
-                    fontSize: "14px",
+                    fontSize: "16px",
                     fontWeight: "600",
                     display: "flex",
                     alignItems: "center",
@@ -170,15 +170,15 @@ export default function WalletCard() {
                 }}
                 detailsButton={{
                   style: {
-                    background: "linear-gradient(135deg, #163563 0%, #8494A8 100%)",
+                    background: "linear-gradient(135deg, #163563 0%,rgb(126, 147, 172) 100%)",
                     color: "white", 
                     border: "none",
                     borderRadius: "12px",
                     width: "100%", // Full width for mobile
-                    maxWidth: "280px", // But not too wide
-                    height: "44px", // Consistent height
-                    padding: "0 12px",
-                    fontSize: "12px",
+                    maxWidth: "380px", // But not too wide
+                    height: "48px", // Consistent height
+                    padding: "0 16px",
+                    fontSize: "16px",
                     fontWeight: "500",
                     display: "flex",
                     alignItems: "center",
@@ -192,29 +192,29 @@ export default function WalletCard() {
           </div>
 
           {/* Wallet Footer */}
-          <div className="wallet-footer style={{ marginTop: '24px' }}">
+          <div className="wallet-footer">
             <div className="item">
               <div onClick={() => setActiveModal('withdraw')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '48px' }}>🏪</span>
+                <span style={{ fontSize: '32px' }}>🏪</span>
                 <strong>Marketplace</strong>
               </div>
             </div>
             <div className="item">
               <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '48px' }}>⚙️</span>
+                <span style={{ fontSize: '32px' }}>⚙️</span>
                 <strong>Back-Office</strong>
               </div>
             </div>
             <div className="item">
               <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '48px' }}>💰</span>
+                <span style={{ fontSize: '32px' }}>💰</span>
                 <strong>Crowdfunding</strong>
               </div>
             </div>
             <div className="item">
               <div onClick={() => setActiveModal('exchange')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '48px' }}>🔀</span>
-                <strong>Exchange</strong>
+                <span style={{ fontSize: '32px' }}>🔀</span>
+                <strong>Social</strong>
               </div>
             </div>
           </div>
