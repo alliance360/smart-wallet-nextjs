@@ -192,7 +192,7 @@ export default function WalletCard() {
           </div>
 
           {/* Wallet Footer */}
-          <div className="wallet-footer">
+          <div className="wallet-footer style={{ marginTop: '32px' }}">
             <div className="item">
               <div onClick={() => setActiveModal('withdraw')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '32px' }}>🏪</span>
