@@ -84,7 +84,7 @@ export default function WalletCard() {
       <div className="section wallet-card-section pt-1">
         <div className="wallet-card">
           {/* Balance - Restructured for mobile */}
-          <div className="balance" style={{ flexDirection: 'column', alignItems: 'stretch' }}>
+          <div className="balance" style={{ flexDirection: 'column', alignItems: 'stretch'}}>
             {/* Balance Info Section */}
             <div style={{ 
               display: 'flex', 
