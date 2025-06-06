@@ -7,63 +7,7 @@ import { defineChain } from "thirdweb";
 import { polygon } from "thirdweb/chains";
 import { client } from "../../client";
 import { wallets } from "../../wallets";
-
-const SimpleModal = ({ 
-  isOpen, 
-  onClose, 
-  title 
-}: { 
-  isOpen: boolean; 
-  onClose: () => void; 
-  title: string; 
-}) => {
-  if (!isOpen) return null;
-  
-  return (
-    <div 
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        bottom: 0,
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        zIndex: 1000
-      }}
-      onClick={onClose}
-    >
-      <div 
-        style={{
-          backgroundColor: 'white',
-          padding: '2rem',
-          borderRadius: '8px',
-          maxWidth: '400px',
-          width: '90%'
-        }}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <h3>{title}</h3>
-        <p>Polygon functionality coming soon...</p>
-        <button 
-          onClick={onClose}
-          style={{
-            padding: '0.5rem 1rem',
-            backgroundColor: '#163563',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer'
-          }}
-        >
-          Close
-        </button>
-      </div>
-    </div>
-  );
-};
+import { EnhancedModal, modalConfig } from '../Modals/WalletModals';
 
 export default function WalletCard() {
   const [activeModal, setActiveModal] = useState<string | null>(null);
@@ -83,9 +27,9 @@ export default function WalletCard() {
     <>
       <div className="section wallet-card-section pt-1">
         <div className="wallet-card">
-          {/* Balance - Restructured for mobile */}
+          {/* Balance - Keeping your exact structure */}
           <div className="balance" style={{ flexDirection: 'column', alignItems: 'stretch'}}>
-            {/* Balance Info Section */}
+            {/* Balance Info Section - Your exact code */}
             <div style={{ 
               display: 'flex', 
               justifyContent: 'space-between', 
@@ -95,6 +39,7 @@ export default function WalletCard() {
               <div className="left">
                 <span className="title">Your Total A360 Wealth (USD)</span>
                 <h1 className="total">{displayBalance}</h1>
+                {/* Keeping your commented wallet address section as-is */}
                 {/* {account && (
                   <p style={{ fontSize: '14px', opacity: 0.8, margin: '5px 0 0 0' }}>
                     {account.address.slice(0, 8)}...{account.address.slice(-6)}
@@ -106,7 +51,7 @@ export default function WalletCard() {
               </div>
             </div>
 
-            {/* ConnectButton Section - Now below the balance */}
+            {/* ConnectButton Section - Your exact code */}
             <div style={{ 
               display: 'flex', 
               justifyContent: 'center',
@@ -174,9 +119,9 @@ export default function WalletCard() {
                     color: "white", 
                     border: "none",
                     borderRadius: "12px",
-                    width: "100%", // Full width for mobile
-                    maxWidth: "380px", // But not too wide
-                    height: "48px", // Consistent height
+                    width: "100%",
+                    maxWidth: "380px",
+                    height: "48px",
                     padding: "0 16px",
                     fontSize: "16px",
                     fontWeight: "500",
@@ -191,29 +136,29 @@ export default function WalletCard() {
             </div>
           </div>
 
-          {/* Wallet Footer */}
+          {/* Wallet Footer - Updated with external link handling */}
           <div className="wallet-footer">
             <div className="item">
-              <div onClick={() => setActiveModal('withdraw')} style={{ cursor: 'pointer' }}>
+              <div onClick={() => setActiveModal('marketplace')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '32px' }}>🏪</span>
                 <strong>Marketplace</strong>
               </div>
             </div>
             <div className="item">
-              <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '32px' }}>💼</span>
+              <div onClick={() => setActiveModal('backoffice')} style={{ cursor: 'pointer' }}>
+                <span style={{ fontSize: '32px' }}>📊</span>
                 <strong>Back-Office</strong>
               </div>
             </div>
             <div className="item">
-              <div onClick={() => setActiveModal('send')} style={{ cursor: 'pointer' }}>
+              <div onClick={() => setActiveModal('crowdfunding')} style={{ cursor: 'pointer' }}>
                 <span style={{ fontSize: '32px' }}>💰</span>
                 <strong>Crowdfunding</strong>
               </div>
             </div>
             <div className="item">
-              <div onClick={() => setActiveModal('exchange')} style={{ cursor: 'pointer' }}>
-                <span style={{ fontSize: '32px' }}>👨‍👩‍👧‍👦</span>
+              <div onClick={() => setActiveModal('social')} style={{ cursor: 'pointer' }}>
+                <span style={{ fontSize: '32px' }}>👥</span>
                 <strong>Social</strong>
               </div>
             </div>
@@ -221,21 +166,37 @@ export default function WalletCard() {
         </div>
       </div>
 
-      {/* Modals */}
-      <SimpleModal 
-        isOpen={activeModal === 'withdraw'} 
+      {/* Enhanced Modals with External Links */}
+      <EnhancedModal 
+        isOpen={activeModal === 'marketplace'} 
         onClose={() => setActiveModal(null)} 
-        title="Marketplace"
+        title={modalConfig.marketplace.title}
+        description={modalConfig.marketplace.description}
+        externalUrl={modalConfig.marketplace.externalUrl}
       />
-      <SimpleModal 
-        isOpen={activeModal === 'send'} 
+      
+      <EnhancedModal 
+        isOpen={activeModal === 'backoffice'} 
         onClose={() => setActiveModal(null)} 
-        title="Back-Office"
+        title={modalConfig.backoffice.title}
+        description={modalConfig.backoffice.description}
+        isComingSoon={modalConfig.backoffice.isComingSoon}
       />
-      <SimpleModal 
-        isOpen={activeModal === 'exchange'} 
+      
+      <EnhancedModal 
+        isOpen={activeModal === 'crowdfunding'} 
         onClose={() => setActiveModal(null)} 
-        title="Exchange"
+        title={modalConfig.crowdfunding.title}
+        description={modalConfig.crowdfunding.description}
+        externalUrl={modalConfig.crowdfunding.externalUrl}
+      />
+      
+      <EnhancedModal 
+        isOpen={activeModal === 'social'} 
+        onClose={() => setActiveModal(null)} 
+        title={modalConfig.social.title}
+        description={modalConfig.social.description}
+        externalUrl={modalConfig.social.externalUrl}
       />
     </>
   );
