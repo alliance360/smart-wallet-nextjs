@@ -1,19 +1,26 @@
 // app/about/[slug]/page.tsx
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 interface BlogDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default function BlogDetailPage({ params }: BlogDetailPageProps) {
   const router = useRouter();
   const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [slug, setSlug] = useState<string>('');
+
+  useEffect(() => {
+    params.then((resolvedParams) => {
+      setSlug(resolvedParams.slug);
+    });
+  }, [params]);
 
   // Mock data - in real app, this would come from your CMS or API
   const blogPost = {
@@ -123,77 +130,81 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
 
       {/* App Capsule */}
       <div id="appCapsule">
-        <div className="section mt-2">
-          <h1>{blogPost.title}</h1>
-          <div className="blog-header-info mt-2 mb-2">
-            <div>
-              <img 
-                src={blogPost.authorImage} 
-                alt="img" 
-                className="imaged w24 rounded me-05"
-              />
-              by <a href="#">{blogPost.author}</a>
-            </div>
-            <div>{blogPost.date}</div>
-          </div>
-          <div className="lead">
-            {blogPost.excerpt}
-          </div>
-        </div>
-
-        <div className="section mt-2">
-          {blogPost.content.map((item, index) => {
-            switch (item.type) {
-              case 'text':
-                return <p key={index}>{item.content}</p>;
-              case 'image':
-                return (
-                  <figure key={index}>
-                    <img 
-                      src={item.content} 
-                      alt="image" 
-                      className="imaged img-fluid"
-                    />
-                  </figure>
-                );
-              case 'heading':
-                return <h3 key={index}>{item.content}</h3>;
-              default:
-                return null;
-            }
-          })}
-        </div>
-
-        <div className="section">
-          <button 
-            className="btn btn-block btn-primary"
-            onClick={() => setShareModalOpen(true)}
-          >
-            📤 Share This Post
-          </button>
-        </div>
-
-        <div className="section mt-3">
-          <h2>Related Posts</h2>
-          <div className="row mt-3">
-            {relatedPosts.map((post) => (
-              <div key={post.id} className="col-6 mb-2">
-                <Link href={`/about/${post.slug}`}>
-                  <div className="blog-card">
-                    <img 
-                      src={post.image} 
-                      alt="image" 
-                      className="imaged w-100"
-                    />
-                    <div className="text">
-                      <h4 className="title">{post.title}</h4>
-                    </div>
-                  </div>
-                </Link>
+        {slug && ( // Only render when slug is available
+          <>
+            <div className="section mt-2">
+              <h1>{blogPost.title}</h1>
+              <div className="blog-header-info mt-2 mb-2">
+                <div>
+                  <img 
+                    src={blogPost.authorImage} 
+                    alt="img" 
+                    className="imaged w24 rounded me-05"
+                  />
+                  by <a href="#">{blogPost.author}</a>
+                </div>
+                <div>{blogPost.date}</div>
               </div>
-            ))}
-          </div>
-        </div>
+              <div className="lead">
+                {blogPost.excerpt}
+              </div>
+            </div>
+
+            <div className="section mt-2">
+              {blogPost.content.map((item, index) => {
+                switch (item.type) {
+                  case 'text':
+                    return <p key={index}>{item.content}</p>;
+                  case 'image':
+                    return (
+                      <figure key={index}>
+                        <img 
+                          src={item.content} 
+                          alt="image" 
+                          className="imaged img-fluid"
+                        />
+                      </figure>
+                    );
+                  case 'heading':
+                    return <h3 key={index}>{item.content}</h3>;
+                  default:
+                    return null;
+                }
+              })}
+            </div>
+
+            <div className="section">
+              <button 
+                className="btn btn-block btn-primary"
+                onClick={() => setShareModalOpen(true)}
+              >
+                📤 Share This Post
+              </button>
+            </div>
+
+            <div className="section mt-3">
+              <h2>Related Posts</h2>
+              <div className="row mt-3">
+                {relatedPosts.map((post) => (
+                  <div key={post.id} className="col-6 mb-2">
+                    <Link href={`/about/${post.slug}`}>
+                      <div className="blog-card">
+                        <img 
+                          src={post.image} 
+                          alt="image" 
+                          className="imaged w-100"
+                        />
+                        <div className="text">
+                          <h4 className="title">{post.title}</h4>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </>
+        )}
       </div>
 
       {/* Share Modal */}
