@@ -1,9 +1,9 @@
 export default function AppBottomMenu() {
   const menuItems = [
     { href: '/', icon: '📊', label: 'Overview', active: true },
-    { href: '/pages', icon: '📄', label: 'Pages', active: false },
-    { href: '/components', icon: '⚙️', label: 'Components', active: false },
-    { href: '/cards', icon: '💳', label: 'My Cards', active: false },
+    { href: '/about', icon: '📰', label: 'About', active: false },
+    { href: '/transactions', icon: '💸', label: 'Transactions', active: false },
+    { href: '/team', icon: '👥', label: 'My Team', active: false },
     { href: '/settings', icon: '⚙️', label: 'Settings', active: false },
   ];
 
@@ -14,10 +14,11 @@ export default function AppBottomMenu() {
           key={item.href}
           href={item.href} 
           className={`item ${item.active ? 'active' : ''}`}
+          title={item.label}
+          style={{ textDecoration: 'none' }}
         >
           <div className="col">
-            <span>{item.icon}</span>
-            <strong>{item.label}</strong>
+            <span style={{ fontSize: '26px', lineHeight: '1' }}>{item.icon}</span>
           </div>
         </a>
       ))}

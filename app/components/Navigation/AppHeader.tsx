@@ -1,21 +1,14 @@
 'use client';
 
 interface AppHeaderProps {
-  onMenuClick: () => void;
+  onMenuClick?: () => void; // Made optional since we won't use it
 }
 
 export default function AppHeader({ onMenuClick }: AppHeaderProps) {
   return (
     <div className="appHeader bg-primary text-light">
-      <div className="left">
-        <button 
-          className="headerButton" 
-          onClick={onMenuClick}
-        >
-          <span>☰</span>
-        </button>
-      </div>
-      <div className="pageTitle">
+      {/* Removed the left div with hamburger menu button */}
+      <div className="pageTitle left">
         <img src="/assets/img/A360logo.webp" alt="logo" className="logo" />
       </div>
       <div className="right">
