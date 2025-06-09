@@ -11,39 +11,39 @@ export default function AboutPage() {
   const blogPosts = [
     {
       id: 1,
-      title: "What will be the value of bitcoin in the next...",
+      title: "A word about the Alliance360 Club",
       image: "/assets/img/sample/photo/1.jpg",
-      slug: "bitcoin-value-future"
+      slug: "alliance360-club"
     },
     {
       id: 2,
-      title: "Rules you need to know in business",
+      title: "How can the A360 platform help your endeavor",
       image: "/assets/img/sample/photo/2.jpg",
-      slug: "business-rules"
+      slug: "a360-tools-to-grow"
     },
     {
       id: 3,
-      title: "10 easy ways to save your money",
+      title: "The A360 Feeder program",
       image: "/assets/img/sample/photo/3.jpg",
-      slug: "save-money-tips"
+      slug: "a360-feeder-program"
     },
     {
       id: 4,
-      title: "Follow the financial agenda with...",
+      title: "The A360 Marketplace",
       image: "/assets/img/sample/photo/4.jpg",
-      slug: "financial-agenda"
+      slug: "a360-marketplace"
     },
     {
       id: 5,
-      title: "Does it make sense to invest in cryptocurrencies",
+      title: "The A360 Social Network... and all the others",
       image: "/assets/img/sample/photo/5.jpg",
-      slug: "crypto-investment"
+      slug: "a360-social-network"
     },
     {
       id: 6,
-      title: "What you need to withdraw money",
+      title: "What you need to handle money",
       image: "/assets/img/sample/photo/6.jpg",
-      slug: "money-withdrawal"
+      slug: "a360-finacial-ecosystem"
     }
   ];
 

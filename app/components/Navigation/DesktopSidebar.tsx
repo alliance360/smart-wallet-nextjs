@@ -16,10 +16,10 @@ export default function DesktopSidebar() {
   });
 
   const menuItems = [
-    { href: '/', icon: '🏠', label: 'Dashboard', active: true },
-    { href: '/cards', icon: '💳', label: 'Cards', active: false },
-    { href: '/analytics', icon: '📊', label: 'Analytics', active: false },
+    { href: '/', icon: '📊', label: 'Overview', active: true },
+    { href: '/about', icon: '📰', label: 'About', active: false },
     { href: '/transactions', icon: '💸', label: 'Transactions', active: false },
+    { href: '/team', icon: '👥', label: 'My Team', active: false },
     { href: '/settings', icon: '⚙️', label: 'Settings', active: false },
   ];
 
