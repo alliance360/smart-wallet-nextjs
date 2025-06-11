@@ -1,71 +1,23 @@
 {
-  "name": "Smart Wallet",
-  "short_name": "SmartWallet",
-  "description": "Your digital wallet application",
+  "name": "Alliance360 Smart Wallet",
+  "short_name": "A360 Wallet",
+  "description": "Alliance360 Smart Wallet - Your gateway to decentralized finance",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#EDEDF5",
-  "theme_color": "#6236FF",
-  "orientation": "portrait-primary",
-  "scope": "/",
+  "background_color": "#163563",
+  "theme_color": "#163563",
   "icons": [
     {
-      "src": "/assets/img/icon/72x72.png",
-      "sizes": "72x72",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/img/icon/96x96.png",
-      "sizes": "96x96",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/img/icon/128x128.png",
-      "sizes": "128x128",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/img/icon/144x144.png",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/img/icon/152x152.png",
-      "sizes": "152x152",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/img/icon/192x192.png",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "maskable any"
+      "purpose": "any maskable"
     },
     {
-      "src": "/assets/img/icon/384x384.png",
-      "sizes": "384x384",
-      "type": "image/png",
-      "purpose": "maskable any"
-    },
-    {
-      "src": "/assets/img/icon/512x512.png",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "maskable any"
-    }
-  ],
-  "categories": ["finance", "utilities"],
-  "shortcuts": [
-    {
-      "name": "Send Money",
-      "short_name": "Send",
-      "description": "Quick access to send money",
-      "url": "/?action=send",
-      "icons": [{ "src": "/assets/img/icon/96x96.png", "sizes": "96x96" }]
+      "purpose": "any maskable"
     }
   ]
 }
