@@ -1,6 +1,6 @@
 'use client';
 
-// Enhanced Modal Component with external link support
+// Enhanced Modal Component with PWA-friendly navigation
 export const EnhancedModal = ({ 
   isOpen, 
   onClose, 
@@ -18,20 +18,10 @@ export const EnhancedModal = ({
 }) => {
   if (!isOpen) return null;
 
-  const handleExternalLink = () => {
+  const handleNavigation = () => {
     if (externalUrl) {
-      // For PWA: Use window.open with specific parameters
-      const newWindow = window.open(
-        externalUrl, 
-        '_blank',
-        'noopener,noreferrer,width=800,height=600'
-      );
-      
-      // Fallback for PWA where window.open might be blocked
-      if (!newWindow) {
-        // Alternative: Use location.href in PWA context
-        window.location.href = externalUrl;
-      }
+      // Direct navigation within PWA context - no window.open
+      window.location.href = externalUrl;
     }
     onClose();
   };
@@ -75,11 +65,26 @@ export const EnhancedModal = ({
         
         <p style={{ 
           color: '#6b7280', 
-          marginBottom: '2rem',
+          marginBottom: '1.5rem',
           lineHeight: '1.5'
         }}>
           {description}
         </p>
+
+        {/* Add helpful context about the floating button */}
+        {!isComingSoon && externalUrl && (
+          <div style={{ 
+            backgroundColor: '#f0f9ff', 
+            border: '1px solid #0ea5e9',
+            borderRadius: '8px',
+            padding: '12px',
+            marginBottom: '1.5rem',
+            fontSize: '14px',
+            color: '#0369a1'
+          }}>
+            💡 <strong>Tip:</strong> Use the floating "Smart Wallet" button to return here easily
+          </div>
+        )}
 
         <div style={{ 
           display: 'flex', 
@@ -89,7 +94,7 @@ export const EnhancedModal = ({
         }}>
           {!isComingSoon && externalUrl && (
             <button 
-              onClick={handleExternalLink}
+              onClick={handleNavigation}
               style={{
                 padding: '12px 24px',
                 backgroundColor: '#163563',
@@ -105,7 +110,7 @@ export const EnhancedModal = ({
                 boxShadow: '0 4px 12px rgba(22, 53, 99, 0.3)'
               }}
             >
-              🌐 Open Platform
+              🚀 Go to Platform
             </button>
           )}
           
@@ -136,30 +141,19 @@ export const EnhancedModal = ({
               fontWeight: '600'
             }}
           >
-            Close
+            Cancel
           </button>
         </div>
-        
-        {!isComingSoon && externalUrl && (
-          <p style={{ 
-            fontSize: '12px', 
-            color: '#9ca3af', 
-            marginTop: '1rem',
-            marginBottom: '0'
-          }}>
-            🔗 {externalUrl}
-          </p>
-        )}
       </div>
     </div>
   );
 };
 
-// Modal configuration data
+// Modal configuration data - Updated descriptions
 export const modalConfig = {
   marketplace: {
     title: "A360 Marketplace",
-    description: "Discover and trade digital assets, NFTs, and exclusive Alliance360 products in our decentralized marketplace.",
+    description: "Navigate to our marketplace to discover and trade digital assets, NFTs, and exclusive Alliance360 products.",
     externalUrl: "https://market.alliance360.club"
   },
   backoffice: {
@@ -170,12 +164,12 @@ export const modalConfig = {
   },
   crowdfunding: {
     title: "A360 Crowdfunding",
-    description: "You're already here! This Smart Wallet is your gateway to crowdfunding projects and investment opportunities.",
+    description: "You're currently in the Smart Wallet - your gateway to crowdfunding and investment opportunities!",
     externalUrl: "https://finance.alliance360.club"
   },
   social: {
     title: "A360 Social Network",
-    description: "Connect with the Alliance360 community, share insights, and collaborate on projects.",
+    description: "Navigate to our social platform to connect with the Alliance360 community and collaborate on projects.",
     externalUrl: "https://social.alliance360.club"
   }
 };

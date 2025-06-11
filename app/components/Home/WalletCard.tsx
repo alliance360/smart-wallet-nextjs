@@ -88,11 +88,11 @@ export default function WalletCard() {
                   name: "Smart Wallet",
                   url: "https://finance.alliance360.club",
                   description: "Your digital wallet application",
-                  logoUrl: "/assets/img/icon/192x192.png",
+                  logoUrl: "/android-chrome-192x192.png",
                 }}
                 connectModal={{ 
                   size: "compact",
-                  titleIcon: "/assets/img/icon/192x192.png",
+                  titleIcon: "/android-chrome-192x192.png",
                 }}
                 connectButton={{
                   label: "Connect Smart Wallet",
