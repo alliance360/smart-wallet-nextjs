@@ -24,47 +24,27 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   // Mock data - in real app, this would come from your CMS or API
   const blogPost = {
-    title: "Rules you need to know in business",
-    author: "Jack Doe",
+    title: "Alliance360 Feeder Program",
+    author: "GLOBAL Alliance360 Club",
     authorImage: "/assets/img/sample/avatar/avatar1.jpg",
-    date: "24, September 2021",
-    excerpt: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam aliquam fringilla euismod. Nulla viverra eu ante tincidunt viverra. Sed dignissim maximus turpis et dictum.",
+    date: "12, June 2025",
+    excerpt: "Your Gateway to the Collaborative Economy",
     content: [
       {
-        type: "text",
-        content: "Proin luctus viverra volutpat. Aenean hendrerit nisi quis consequat pretium. Maecenas ut vestibulum justo. Morbi eleifend ante eget arcu sodales malesuada. Nunc interdum ac diam ut bibendum. Proin gravida sit amet urna ac scelerisque. Vivamus consectetur ex vel felis bibendum fermentum."
-      },
-      {
-        type: "image",
-        content: "/assets/img/sample/photo/3.jpg"
+        type: "heading",
+        content: "Welcome to the Future of Business Networking"
       },
       {
         type: "text",
-        content: "Nullam augue magna, dignissim sit amet libero eu, ultrices tempus metus. Ut finibus ac justo eu tempor. Quisque egestas lectus neque, quis sodales lacus volutpat id."
+        content: "Alliance360 Club is more than a networking platform - it's a revolutionary ecosystem where individual professionals and businesses unite to create a participatory, circular economy that benefits everyone."
       },
       {
         type: "heading",
-        content: "Quisque id risus diam"
+        content: "What is the Alliance360 Feeder Program?"
       },
       {
         type: "text",
-        content: "Vivamus venenatis at purus at varius. Nam pharetra, magna et interdum dignissim, purus risus ullamcorper ipsum, et pharetra turpis ex vel orci."
-      },
-      {
-        type: "image",
-        content: "/assets/img/sample/photo/1.jpg"
-      },
-      {
-        type: "heading",
-        content: "Pellentesque dictum"
-      },
-      {
-        type: "text",
-        content: "Pellentesque condimentum ornare nibh, nec iaculis purus faucibus ac. Etiam lacus ante, eleifend et aliquam a, tristique vel urna."
-      },
-      {
-        type: "text",
-        content: "Vivamus venenatis at purus at varius. Nam pharetra, magna et interdum dignissim, purus risus ullamcorper ipsum, et pharetra turpis ex vel orci. Nulla tincidunt nibh ac elit semper placerat. Fusce mattis, sapien vel vulputate scelerisque, ligula erat mollis elit, vitae condimentum ante leo quis quam. Vivamus sit amet quam ut eros varius venenatis et et orci. Pellentesque dictum egestas odio, sed auctor nulla euismod quis. Donec elementum feugiat ex, nec pharetra nulla sodales ac."
+        content: "Your entry point into a dynamic business community designed to: Connect you with like-minded professionals and forward-thinking businesses | Empower your growth through collaborative opportunities | Enable sustainable business practices through our circular economy model | Amplify your capabilities through strategic alliances"
       }
     ]
   };
