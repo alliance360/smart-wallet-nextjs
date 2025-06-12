@@ -45,6 +45,14 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       {
         type: "text",
         content: "Your entry point into a dynamic business community designed to: Connect you with like-minded professionals and forward-thinking businesses | Empower your growth through collaborative opportunities | Enable sustainable business practices through our circular economy model | Amplify your capabilities through strategic alliances"
+      },
+      {
+        type: "heading",
+        content: "What You Get for Just $7.95"
+      },
+      {
+        type: "text",
+        content: "🔹 <b>Simple Smart Wallet Technology:</b> Secure digital asset management | Seamless transaction capabilities | Future-ready blockchain integration<br>🔹 <b>Full Ecosystem Access:</b> Professional networking platform | Direct communication tools | Resource sharing capabilities | Collaboration opportunity matching<br>🔹 <b>Quality Contact Network:</b> Vetted professionals and entrepreneurs | Allied business members committed to growth | Industry thought leaders and innovators | Strategic partnership opportunities"
       }
     ]
   };
@@ -153,16 +161,16 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
               })}
             </div>
 
-            <div className="section">
+            {/* <div className="section">
               <button 
                 className="btn btn-block btn-primary"
                 onClick={() => setShareModalOpen(true)}
               >
                 📤 Share This Post
               </button>
-            </div>
+            </div> */}
 
-            <div className="section mt-3">
+            {/* <div className="section mt-3">
               <h2>Related Posts</h2>
               <div className="row mt-3">
                 {relatedPosts.map((post) => (
@@ -182,7 +190,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </>
         )}
       </div>
