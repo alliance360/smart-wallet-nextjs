@@ -52,7 +52,15 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       },
       {
         type: "text",
-        content: "🔹 <b>Simple Smart Wallet Technology:</b> Secure digital asset management | Seamless transaction capabilities | Future-ready blockchain integration<br>🔹 <b>Full Ecosystem Access:</b> Professional networking platform | Direct communication tools | Resource sharing capabilities | Collaboration opportunity matching<br>🔹 <b>Quality Contact Network:</b> Vetted professionals and entrepreneurs | Allied business members committed to growth | Industry thought leaders and innovators | Strategic partnership opportunities"
+        content: "🔹 Simple Smart Wallet Technology: Secure digital asset management | Seamless transaction capabilities | Future-ready blockchain integration<br>"
+      },
+      {
+        type: "text",
+        content: "🔹 Full Ecosystem Access: Professional networking platform | Direct communication tools | Resource sharing capabilities | Collaboration opportunity matching"
+      },
+      {
+        type: "text",
+        content: "🔹 Quality Contact Network: Vetted professionals and entrepreneurs | Allied business members committed to growth | Industry thought leaders and innovators | Strategic partnership opportunities"
       }
     ]
   };
