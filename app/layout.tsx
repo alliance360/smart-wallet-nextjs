@@ -1,16 +1,17 @@
 import './globals.css'
 import { ThirdwebProvider } from "thirdweb/react";
-import ResponsiveLayout from './components/Layout/ResponsiveLayout'
+// import ResponsiveLayout from './components/Layout/ResponsiveLayout' 163563 6236FF
+import SimpleLayout from './components/Layout/SimpleLayout'
 import Script from 'next/script'
 
 export const metadata = {
-  title: 'A360 Smart Wallet',
+  title: 'LegacyFeeder',
   description: 'Your digital wallet application',
   manifest: '/manifest.json',
 }
 
 export const viewport = {
-  themeColor: '#6236FF',
+  themeColor: '#163563',
 }
 
 export default function RootLayout({
@@ -39,9 +40,9 @@ export default function RootLayout({
             <img src="/assets/img/loading-icon.png" alt="icon" className="loading-icon" />
           </div>
           
-          <ResponsiveLayout>
+          <SimpleLayout>
             {children}
-          </ResponsiveLayout>
+          </SimpleLayout>
         </ThirdwebProvider>
         
         <Script 
