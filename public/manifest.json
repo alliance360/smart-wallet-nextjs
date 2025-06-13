@@ -1,7 +1,7 @@
 {
-  "name": "Alliance360 Smart Wallet",
-  "short_name": "A360 Wallet",
-  "description": "Alliance360 Smart Wallet - Your gateway to decentralized finance",
+  "name": "Legacy Feeder",
+  "short_name": "Legacy Wallet",
+  "description": "Legacy Feeder - Your entry point into a dynamic business community",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#163563",

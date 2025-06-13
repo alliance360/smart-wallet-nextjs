@@ -11,39 +11,39 @@ export default function AboutPage() {
   const blogPosts = [
     {
       id: 1,
-      title: "A word about the Alliance360 Club",
+      title: "A word about Legacy Feeder",
       image: "/assets/img/sample/photo/1.jpg",
-      slug: "alliance360-club"
+      slug: "legacy-feeder"
     },
     {
       id: 2,
-      title: "How can the A360 platform help your endeavor",
+      title: "How can Legacy Feeder help your endeavor",
       image: "/assets/img/sample/photo/2.jpg",
-      slug: "a360-tools-to-grow"
+      slug: "tools-to-grow"
     },
     {
       id: 3,
-      title: "The A360 Feeder program",
+      title: "The Legacy Feeder program",
       image: "/assets/img/sample/photo/3.jpg",
-      slug: "a360-feeder-program"
+      slug: "feeder-program"
     },
     {
       id: 4,
-      title: "The A360 Marketplace",
+      title: "The Marketplace",
       image: "/assets/img/sample/photo/4.jpg",
-      slug: "a360-marketplace"
+      slug: "marketplace"
     },
     {
       id: 5,
-      title: "The A360 Social Network... and all the others",
+      title: "The Social Network",
       image: "/assets/img/sample/photo/5.jpg",
-      slug: "a360-social-network"
+      slug: "social-network"
     },
     {
       id: 6,
       title: "What you need to handle money",
       image: "/assets/img/sample/photo/6.jpg",
-      slug: "a360-finacial-ecosystem"
+      slug: "finacial-ecosystem"
     }
   ];
 

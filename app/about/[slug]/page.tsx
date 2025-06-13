@@ -24,8 +24,8 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
 
   // Mock data - in real app, this would come from your CMS or API
   const blogPost = {
-    title: "Alliance360 Feeder Program",
-    author: "GLOBAL Alliance360 Club",
+    title: "Legacy Feeder Program",
+    author: "GLOBAL Legacy Builders",
     authorImage: "/assets/img/sample/avatar/avatar1.jpg",
     date: "12, June 2025",
     excerpt: "Your Gateway to the Collaborative Economy",
@@ -36,11 +36,11 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       },
       {
         type: "text",
-        content: "Alliance360 Club is more than a networking platform - it's a revolutionary ecosystem where individual professionals and businesses unite to create a participatory, circular economy that benefits everyone."
+        content: "The Legacy Feeder Club is more than a networking platform - it's a revolutionary ecosystem where individual professionals and businesses unite to create a participatory economy that benefits everyone."
       },
       {
         type: "heading",
-        content: "What is the Alliance360 Feeder Program?"
+        content: "What is the Legacy Feeder Program?"
       },
       {
         type: "text",
@@ -68,7 +68,7 @@ export default function BlogDetailPage({ params }: BlogDetailPageProps) {
       },
       {
         type: "text",
-        content: "Unlike traditional networking platforms, Alliance360 integrates:"
+        content: "Unlike traditional networking platforms, we integrates:"
       },
       {
         type: "text",
