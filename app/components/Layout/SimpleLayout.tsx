@@ -24,14 +24,22 @@ export default function SimpleLayout({ children }: SimpleLayoutProps) {
           display: flex;
           flex-direction: column;
           min-height: 100vh;
+          width: 100vw;
           max-width: 100vw;
           overflow-x: hidden;
+          margin: 0;
+          padding: 0;
         }
         
         .main-content {
           flex: 1;
+          width: 100%;
+          max-width: 100%;
+          padding: 0; /* Remove default padding */
           padding-bottom: 80px; /* Space for bottom menu */
           padding-top: 60px; /* Space for header */
+          margin: 0;
+          box-sizing: border-box;
         }
         
         /* Ensure proper spacing on different screen sizes */
@@ -40,6 +48,12 @@ export default function SimpleLayout({ children }: SimpleLayoutProps) {
             padding-bottom: 70px;
             padding-top: 55px;
           }
+        }
+        
+        /* Make sure child elements can use full width */
+        .main-content > * {
+          max-width: 100%;
+          box-sizing: border-box;
         }
       `}</style>
     </div>
